@@ -1,11 +1,5 @@
-<% provide(:title, "") %>
-<div class="center jumbotron">
-<h1>Fuhrpark Klaus Schmitz</h1>
-<p>Willkommen auf der Seite des Fuhrparkes, <%= @test_variable %></p>
-<%= image_tag("caddy.jpg", alt: "VW Caddy",width:"360")%>
-<br>
-<br>
-<%= link_to "Melde dich jetzt an!", signup_path, class: "btn btn-lg btn-primary" %>
-<br>
-<p>Anzahl der bereits angemeldeten Personen: <%= @count %></p>
-</div>
+<% if logged_in? %>
+	<%= render 'home_signed_in' %>
+<% else %>
+	<%= render 'home_guest' %>
+<% end %>
