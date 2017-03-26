@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <tr>
+    <td>Modell</td>
+    <td><%= @car.car_model %></td>
+  </tr>
+  <tr>
+    <td>Kaufpreis</td>
+    <td><%= number_with_delimiter(@car.purchase_price.round(0), :delimiter => '.') %> €</td>
+  </tr>
+  <tr>
+    <td>Kaufdatum</td>
+    <td><%= @car.purchase_date.strftime('%d.%m.%Y') %></td>
+  </tr>
+  <tr>
+    <td>Verkäufer</td>
+    <td><%= @car.seller %></td>
+  </tr>
+  <tr>
+    <td>Aktuelle km-Stand</td>
+    <td>0.000</td>
+  </tr>
+</table>

@@ -42,3 +42,44 @@ users = User.order(:created_at).take(6)
   users.each { |user| user.microposts.create!(content: content) }
 end
 
+## CAR SAMPLES
+car_names_and_models =   [['BMW Papa','BMW 7'],
+                        ['Mercedes','Mercedes S320'],
+                        ['Audi','Audi A3'], 
+                        ['Astra','Opel Astra Kombi'], 
+                        ['Caddy','VW Caddy 1.6'], 
+                        ['Mamas Citroen','Citroen Picasso'], 
+                        ['Golf Zicka','VW Golf 5']
+                        ]
+sellers = ['Autohaus', 'Privat']
+
+users = User.order(:created_at).take(3)
+15.times do
+  car_name_and_model = car_names_and_models.sample
+  users.each { |user| user.cars.create!(
+        car_name: car_name_and_model[0],
+        car_model: car_name_and_model[1],
+        purchase_price: rand(5000...40000).round(-3),
+        purchase_date: Time.at((5.years.ago.to_f - 1.years.ago.to_f)*rand + 1.years.ago.to_f),
+        seller:sellers.sample
+    ) }
+end
+
+## REFUELLING SAMPLES
+station_names_and_cities = [['Aral Ostallee','Trier'],
+                            ['Total Lux','Wasserbillig'],
+                            ['Shell Görli','Berlin']]
+
+cars_sample = Car.order(:created_at).take(15)
+
+20.times do
+  station_name_and_city = station_names_and_cities.sample
+  cars_sample.each { |car| car.refuellings.create!(
+        refuel_date: Time.at((2.years.ago.to_f - 1.years.ago.to_f)*rand + Time.zone.now.to_f),
+        milage: rand(5000...80000).round(-2),
+        price_per_liter:rand(0.8...1.5).round(2),
+        filling_station: station_name_and_city[0],
+        location: station_name_and_city[1],
+        liters:rand(30.0...75.0).round(1)
+    ) }
+end

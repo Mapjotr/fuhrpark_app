@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203195349) do
+ActiveRecord::Schema.define(version: 20170325180808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.string   "car_name"
+    t.string   "car_model"
+    t.float    "purchase_price"
+    t.date     "purchase_date"
+    t.string   "seller"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id", "created_at"], name: "index_cars_on_user_id_and_created_at", using: :btree
+    t.index ["user_id"], name: "index_cars_on_user_id", using: :btree
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -23,6 +36,20 @@ ActiveRecord::Schema.define(version: 20170203195349) do
     t.string   "picture"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_microposts_on_user_id", using: :btree
+  end
+
+  create_table "refuellings", force: :cascade do |t|
+    t.date     "refuel_date"
+    t.integer  "milage"
+    t.float    "price_per_liter"
+    t.string   "filling_station"
+    t.string   "location"
+    t.float    "liters"
+    t.integer  "car_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["car_id", "created_at"], name: "index_refuellings_on_car_id_and_created_at", using: :btree
+    t.index ["car_id"], name: "index_refuellings_on_car_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,5 +68,7 @@ ActiveRecord::Schema.define(version: 20170203195349) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "cars", "users"
   add_foreign_key "microposts", "users"
+  add_foreign_key "refuellings", "cars"
 end

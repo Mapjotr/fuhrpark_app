@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+caddy:
+  car_name: "Caddy"
+  car_model: "VW Caddy 1.6"
+  purchase_price: 10000
+  purchase_date: 2016-07-19
+  seller: "Ferienwohnung Franken"
+  created_at: <%= 10.minutes.ago %>
+
+astra:
+  car_name: "Astra"
+  car_model: "Opel Astra"
+  purchase_price: 5000
+  purchase_date: 2013-04-23
+  seller: "Typ in Wittlich"
+  created_at: <%= 3.years.ago %>
+
+
+bmw:
+  car_name: "Fünfer BMW"
+  car_model: "BWM 7 Diesel"
+  purchase_price: 30000
+  purchase_date: 2015-11-15
+  seller: "Paul Paulsen"
+  created_at: <%= Time.zone.now %>

@@ -1,0 +1,20 @@
+<%= form_for(@car) do |f| %>
+  <%= render 'shared/error_messages', object: @car %>
+
+  <%= f.label :car_name, 'Name des Autos' %>
+  <%= f.text_field :car_name, placeholder: "Ugs. Name des Auto (z.B. BMW Papa)", class: 'form-control' %>
+
+  <%= f.label :car_model, 'Modell-Bezeichnung' %>
+  <%= f.text_field :car_model, placeholder: "Genaue Modell-Bezeichnung (z.B. VW Caddy 1.6d)", class: 'form-control' %>
+
+  <%= f.label :purchase_price, 'Kaufpreis' %>
+  <%= f.number_field :purchase_price, placeholder: "Kaufpreis in Euro", class: 'form-control' %>
+
+  <%= f.label :purchase_date, 'Kaufdatum' %>
+  <%= f.date_field :purchase_date, placeholder: "Kaufdatum", class: 'form-control' %>
+
+  <%= f.label :seller, 'Verkäufer' %>
+  <%= f.text_field :seller,placeholder: "Gekauft von...", class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

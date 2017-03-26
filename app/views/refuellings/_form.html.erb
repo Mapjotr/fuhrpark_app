@@ -1,0 +1,23 @@
+<%= form_for @refuelling, url: car_refuellings_path, html: { method: :post }  do |f| %>
+  <%= render 'shared/error_messages', object: @refuelling %>
+
+  <%= f.label :refuel_date, 'Tankdatum' %>
+  <%= f.date_field :refuel_date, placeholder: "Tankdatum", class: 'form-control' %>
+
+  <%= f.label :milage, 'Kilometerstand' %>
+  <%= f.number_field :milage, placeholder: "Aktueller Kilometerstand", class: 'form-control' %>
+
+  <%= f.label :price_per_liter, 'Preis pro Liter' %>
+  <%= f.number_field :price_per_liter, placeholder: "Preis pro Liter in Cents", class: 'form-control' %>
+
+  <%= f.label :liters, 'Liter' %>
+  <%= f.number_field :liters,placeholder: "Getankte Liter", class: 'form-control' %>
+
+  <%= f.label :filling_station, 'Name der Tankstelle' %>
+  <%= f.text_field :filling_station, placeholder: "Name der Tankstelle (z.B. Aral)", class: 'form-control' %>
+
+  <%= f.label :location, 'Ort' %>
+  <%= f.text_field :location,placeholder: "Ort der Tankstelle", class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

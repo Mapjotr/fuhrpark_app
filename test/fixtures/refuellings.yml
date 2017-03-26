@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  refuel_date: 2017-03-25
+  milage: 1
+  price_per_liter: 1.5
+  filling_station: MyString
+  location: MyString
+  liters: 1.5
+  car: one
+
+two:
+  refuel_date: 2017-03-25
+  milage: 1
+  price_per_liter: 1.5
+  filling_station: MyString
+  location: MyString
+  liters: 1.5
+  car: two

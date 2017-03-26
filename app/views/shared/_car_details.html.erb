@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <h1>
+    <%= @car.car_name %>
+  </h1>
+  <!-- First row -->
+  <div class="row">
+    <div class="col-md-4">
+      <img src="/images/caddy.jpg" style="width:100%" alt="blabla" class="img-rounded">
+   </div>
+    <div class="col-md-4">
+      <%= render 'shared/car_details_details' %>
+    </div>
+    <div class="col-md-4">
+      <%= render 'shared/car_details_details_2' %>
+    </div>
+  </div>
+  <!-- Second Row -->
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Tankbuch (letzte 5 Einträge)</h2>
+      <%= render 'shared/car_details_logbook' %>
+    </div>
+        <div class="col-md-1">
+   </div>
+    <div class="col-md-5">
+      <h2>Reparaturliste</h2>
+      <%= render 'shared/car_details_repairbook' %>
+   </div>
+  </div>
+</div> <!-- /container -->

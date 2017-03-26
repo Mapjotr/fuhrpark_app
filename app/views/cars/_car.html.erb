@@ -1,0 +1,13 @@
+<tr id="car-<%= car.id %>">
+  <td class="col-md-5"><%= car.car_name %></td>
+  <td class="col-md-4"><%= car.purchase_price %> €</td>
+  <td class="col-md-1"><%= link_to car,:title => "Details anzeigen", class: "btn btn-default" do %>
+    <i class="glyphicon glyphicon-info-sign"></i>
+  <% end %></td>
+  <td class="col-md-1"><%= link_to edit_car_path(car.id),:title => "Auto bearbeiten", class: "btn btn-default" do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %></td>
+  <td class="col-md-1"><%= link_to car, method: :delete, data: { confirm: "Auto wirklich löschen?" } ,:title => "Auto löschen", class: "btn btn-default" do %>
+    <i class="glyphicon glyphicon-remove"></i>
+  <% end %></td>
+</tr>

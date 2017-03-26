@@ -1,0 +1,28 @@
+<table class="table table-striped">
+   <tr id="car-header">
+    <th class="col-md-2">Datum</th>
+    <th class="col-md-2">Km-Stand</th>
+    <th class="col-md-1">€/l</th>
+    <th class="col-md-2">Tankstelle</th>
+    <th class="col-md-2">Stadt</th>
+    <th class="col-md-1">Liter</th>
+    <th class="col-md-2">Betrag (€)</th>
+  </tr> 
+<% @car.refuellings[0..4].each do |refuelling| %>
+  <tr id="car-<%= refuelling.id %>">
+    <td class="col-md-2"><%= refuelling.refuel_date.strftime('%d.%m.%Y')  %></td>
+    <td class="col-md-2"><%= refuelling.milage %></td>
+    <td class="col-md-1"><%= refuelling.price_per_liter %></td>
+    <td class="col-md-2"><%= refuelling.filling_station %></td>
+    <td class="col-md-2"><%= refuelling.location %></td>
+    <td class="col-md-1"><%= refuelling.liters %></td>
+    <td class="col-md-2"><%= (refuelling.liters * refuelling.price_per_liter).round(1) %></td>
+  </tr>      
+<% end %>
+</table>
+<p>
+  <%= link_to "Zeige alle Einträge &raquo;".html_safe, 
+    car_refuellings_path(@car.id), :title => "Zeige alle Einträge", 
+    :class => "btn btn-default" 
+  %> 
+</p>

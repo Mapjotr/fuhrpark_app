@@ -1,0 +1,26 @@
+<% provide(:title, 'Tankeinträge') %>
+
+<div class="row">
+  <div class="col-md-2">
+    <section class="user_info">
+    <%= link_to 'Neuer Eintrag', new_car_refuelling_path(@car_id), :class => "btn btn-primary" %> 
+    <%= link_to 'Zurück zu Auto', car_path(@car_id), :class => "btn btn-primary" %> 
+    </section>
+  </div>
+  <div class="col-md-10">
+      <table class="table table-striped">
+      <tr id="refuelling-header">
+        <th class="col-md-1">Datum</th>
+        <th class="col-md-1">Km-Stand</th>
+        <th class="col-md-1">€/l</th>
+        <th class="col-md-2">Tankstelle</th>
+        <th class="col-md-2">Stadt</th>
+        <th class="col-md-1">Liter</th>
+        <th class="col-md-2">Betrag (€)</th>
+        <th class="col-md-1"></th>
+        <th class="col-md-1"></th>
+      </tr> 
+        <%= render @refuellings %>
+      </table>
+  </div>
+</div>
