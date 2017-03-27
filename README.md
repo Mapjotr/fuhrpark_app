@@ -7,9 +7,8 @@ Things to do:
 
 * Add pagination in refuellings
 * Add repair model
-* Style buttons on sidebar
 * modify car model --> add more information about cars, e.g. atueller kilometerstand, ps, 
-* modify refuelling model --> set price to cents, add validations, convert figures if wrong etc.
+* modify refuelling model --> add validations, convert figures if wrong etc.
 * get better date-picker
 
 

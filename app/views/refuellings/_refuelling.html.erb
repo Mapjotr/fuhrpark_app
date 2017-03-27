@@ -1,11 +1,11 @@
 <tr id="refuelling-<%= refuelling.id %>">
   <td class="col-md-1"><%= refuelling.refuel_date.strftime('%d.%m.%Y')  %></td>
   <td class="col-md-1"><%= refuelling.milage %></td>
-  <td class="col-md-1"><%= refuelling.price_per_liter %></td>
+  <td class="col-md-1"><%= refuelling.cents_per_liter %></td>
   <td class="col-md-2"><%= refuelling.filling_station %></td>
   <td class="col-md-2"><%= refuelling.location %></td>
   <td class="col-md-1"><%= refuelling.liters %></td>
-  <td class="col-md-2"><%= (refuelling.liters * refuelling.price_per_liter).round(1) %></td>
+  <td class="col-md-2"><%= ((refuelling.liters * refuelling.cents_per_liter)/100).round(2) %></td>
   <td class="col-md-1"><%= link_to edit_car_refuelling_path(@car_id,refuelling.id),
       :title => "Bearbeiten", class: "btn btn-default" do %>
     <i class="glyphicon glyphicon-edit"></i>

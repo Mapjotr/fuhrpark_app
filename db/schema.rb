@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170325180808) do
   create_table "refuellings", force: :cascade do |t|
     t.date     "refuel_date"
     t.integer  "milage"
-    t.float    "price_per_liter"
+    t.integer  "cents_per_liter"
     t.string   "filling_station"
     t.string   "location"
     t.float    "liters"

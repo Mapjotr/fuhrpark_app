@@ -77,7 +77,7 @@ cars_sample = Car.order(:created_at).take(15)
   cars_sample.each { |car| car.refuellings.create!(
         refuel_date: Time.at((2.years.ago.to_f - 1.years.ago.to_f)*rand + Time.zone.now.to_f),
         milage: rand(5000...80000).round(-2),
-        price_per_liter:rand(0.8...1.5).round(2),
+        cents_per_liter:rand(80...140),
         filling_station: station_name_and_city[0],
         location: station_name_and_city[1],
         liters:rand(30.0...75.0).round(1)

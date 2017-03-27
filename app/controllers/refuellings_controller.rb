@@ -41,7 +41,7 @@ class RefuellingsController < ApplicationController
 private
 
   def refuelling_params
-    params.require(:refuelling).permit(:refuel_date, :milage, :price_per_liter,
+    params.require(:refuelling).permit(:refuel_date, :milage, :cents_per_liter,
                                  :filling_station, :location, :liters)
   end
 
