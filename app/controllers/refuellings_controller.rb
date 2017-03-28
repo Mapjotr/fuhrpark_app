@@ -42,7 +42,7 @@ private
 
   def refuelling_params
     params.require(:refuelling).permit(:refuel_date, :milage, :cents_per_liter,
-                                 :filling_station, :location, :liters)
+                                 :filling_station, :location, :liters, :filled_up)
   end
 
   def current_car

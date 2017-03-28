@@ -19,5 +19,30 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      refuelling:
+        refuel_date: "Tankdatum"
+        milage: "Kilometerstand"
+        cents_per_liter: "Preis pro Liter"
+        liters: "Liter"
+        filling_station: "Name des Tankstelle"
+        location: "Ort"
+    errors:
+      models:
+        refuelling:
+          attributes:
+            refuel_date:
+              blank: 'muss ausgefüllt sein'
+            milage:
+              blank: 'muss ausgefüllt sein'
+            cents_per_liter:
+              blank: 'muss ausgefüllt sein'
+            liters:
+              blank: 'muss ausgefüllt sein'
+            filling_station:
+              blank: 'muss ausgefüllt sein'
+            location:
+              blank: 'muss ausgefüllt sein'                

@@ -1,22 +1,22 @@
 <table class="table table-striped">
   <tr>
-    <td>Modell</td>
-    <td><%= @car.car_model %></td>
+    <td>Bezeichnung</td>
+    <td><%= @car.car_brand %> <%= @car.car_model %></td>
   </tr>
   <tr>
-    <td>Kaufpreis</td>
-    <td><%= number_with_delimiter(@car.purchase_price.round(0), :delimiter => '.') %> €</td>
+    <td>Autokennzeichen</td>
+    <td><%= @car.numberplate %></td>
   </tr>
   <tr>
-    <td>Kaufdatum</td>
-    <td><%= @car.purchase_date.strftime('%d.%m.%Y') %></td>
+    <td>Leistung</td>
+    <td><%= @car.engine_power %> PS</td>
   </tr>
   <tr>
-    <td>Verkäufer</td>
-    <td><%= @car.seller %></td>
+    <td>Treibstoffart</td>
+    <td><%= @car.fuel_type %></td>
   </tr>
   <tr>
-    <td>Aktuelle km-Stand</td>
-    <td>0.000</td>
+    <td>Hubraum</td>
+    <td><%= number_with_delimiter(@car.cubic_capacity.round(0), :delimiter => '.') %></td>
   </tr>
 </table>

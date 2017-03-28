@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327191520) do
+ActiveRecord::Schema.define(version: 20170328165806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,15 @@ ActiveRecord::Schema.define(version: 20170327191520) do
     t.date     "purchase_date"
     t.string   "seller"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "car_brand"
+    t.date     "registrationdate"
+    t.integer  "milage_purchase_date"
+    t.string   "fuel_type"
+    t.integer  "cubic_capacity"
+    t.integer  "engine_power"
+    t.string   "numberplate"
     t.index ["user_id", "created_at"], name: "index_cars_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_cars_on_user_id", using: :btree
   end
@@ -48,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170327191520) do
     t.integer  "car_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.boolean  "filled_up"
     t.index ["car_id", "created_at"], name: "index_refuellings_on_car_id_and_created_at", using: :btree
     t.index ["car_id"], name: "index_refuellings_on_car_id", using: :btree
   end

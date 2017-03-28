@@ -1,23 +1,30 @@
 <%= form_for @refuelling, url: car_refuellings_path, html: { method: :post }  do |f| %>
   <%= render 'shared/error_messages', object: @refuelling %>
 
-  <%= f.label :refuel_date, 'Tankdatum' %>
+  <%= f.label :refuel_date %>
   <%= f.date_field :refuel_date, placeholder: "Tankdatum", class: 'form-control' %>
 
-  <%= f.label :milage, 'Kilometerstand' %>
+  <%= f.label :milage %>
   <%= f.number_field :milage, placeholder: "Aktueller Kilometerstand", class: 'form-control' %>
 
-  <%= f.label :cents_per_liter, 'Preis pro Liter' %>
+  <%= f.label :cents_per_liter %>
   <%= f.number_field :cents_per_liter, placeholder: "Preis pro Liter in Cents", class: 'form-control' %>
 
-  <%= f.label :liters, 'Liter' %>
-  <%= f.number_field :liters,placeholder: "Getankte Liter", class: 'form-control' %>
+  <%= f.label :liters %>
+  <%= f.number_field :liters,placeholder: "Getankte Liter (z.B. 48.2 (benutze Punkt als Trennzeichen))", class: 'form-control', :step => 0.01 %>
 
-  <%= f.label :filling_station, 'Name der Tankstelle' %>
+  <%= f.label :filling_station %>
   <%= f.text_field :filling_station, placeholder: "Name der Tankstelle (z.B. Aral)", class: 'form-control' %>
 
-  <%= f.label :location, 'Ort' %>
+  <%= f.label :location %>
   <%= f.text_field :location,placeholder: "Ort der Tankstelle", class: 'form-control' %>
+
+  <h3>Komplett Vollgetankt?</h3>
+
+  <%= f.radio_button :filled_up, true, :checked => true %> 
+  <%= label :filled_up, 'Ja' %>
+  <%= f.radio_button :filled_up, false %>
+  <%= label :filled_up, 'Nein'  %>
 
   <%= f.submit yield(:button_text), class: "btn btn-success" %>
 <% end %>

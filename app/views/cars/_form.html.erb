@@ -1,20 +1,47 @@
 <%= form_for(@car) do |f| %>
   <%= render 'shared/error_messages', object: @car %>
 
+  <h2>Angaben zum Auto</h2>
+
   <%= f.label :car_name, 'Name des Autos' %>
   <%= f.text_field :car_name, placeholder: "Ugs. Name des Auto (z.B. BMW Papa)", class: 'form-control' %>
 
-  <%= f.label :car_model, 'Modell-Bezeichnung' %>
-  <%= f.text_field :car_model, placeholder: "Genaue Modell-Bezeichnung (z.B. VW Caddy 1.6d)", class: 'form-control' %>
+  <%= f.label :car_brand, 'Auto Marke' %>
+  <%= f.text_field :car_brand, placeholder: "Marke des Autos (z.B. VW order BMW)", class: 'form-control' %>
 
-  <%= f.label :purchase_price, 'Kaufpreis' %>
-  <%= f.number_field :purchase_price, placeholder: "Kaufpreis in Euro", class: 'form-control' %>
+  <%= f.label :car_model, 'Modell-Bezeichnung' %>
+  <%= f.text_field :car_model, placeholder: "Genaue Modell-Bezeichnung (z.B. Caddy 1.6d)", class: 'form-control' %>
+
+  <%= f.label :numberplate, 'Autokennzeichen' %>
+  <%= f.text_field :numberplate, placeholder: "Autokennzeichen (z.B. TR-ES 12)", class: 'form-control' %>
+
+  <%= f.radio_button :fuel_type, 'Diesel', :checked => true %> 
+  <%= label :fuel_type, 'Diesel' %>
+  <%= f.radio_button :fuel_type, 'Benzin' %>
+  <%= label :fuel_type, 'Benzin'  %>
+<br>
+  <%= f.label :cubic_capacity, 'Hubraum' %>
+  <%= f.number_field :cubic_capacity,placeholder: "Hubraum (zb. 1600)", class: 'form-control' %>
+
+  <%= f.label :engine_power, 'Leistung (PS)' %>
+  <%= f.number_field :engine_power, placeholder: "Leistung in PS", class: 'form-control' %>
+
+  <h2>Angaben zum Kauf</h2>
+
+  <%= f.label :seller, 'Verkäufer' %>
+  <%= f.text_field :seller,placeholder: "Gekauft von...", class: 'form-control' %>
 
   <%= f.label :purchase_date, 'Kaufdatum' %>
   <%= f.date_field :purchase_date, placeholder: "Kaufdatum", class: 'form-control' %>
 
-  <%= f.label :seller, 'Verkäufer' %>
-  <%= f.text_field :seller,placeholder: "Gekauft von...", class: 'form-control' %>
+  <%= f.label :purchase_price, 'Kaufpreis' %>
+  <%= f.number_field :purchase_price, placeholder: "Kaufpreis in Euro", class: 'form-control' %>
+
+  <%= f.label :registrationdate, 'Erstzulassung' %>
+  <%= f.date_field :registrationdate, placeholder: "Erstzulassung", class: 'form-control' %>
+
+  <%= f.label :milage_purchase_date, 'Km-Stand bei Kauf' %>
+  <%= f.number_field :milage_purchase_date, placeholder: "Kaufpreis in Euro", class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-success" %>
 <% end %>

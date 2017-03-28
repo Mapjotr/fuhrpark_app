@@ -43,25 +43,36 @@ users = User.order(:created_at).take(6)
 end
 
 ## CAR SAMPLES
-car_names_and_models =   [['BMW Papa','BMW 7'],
-                        ['Mercedes','Mercedes S320'],
-                        ['Audi','Audi A3'], 
-                        ['Astra','Opel Astra Kombi'], 
-                        ['Caddy','VW Caddy 1.6'], 
-                        ['Mamas Citroen','Citroen Picasso'], 
-                        ['Golf Zicka','VW Golf 5']
+car_names_and_models =   [['BMW Papa','BMW', '7'],
+                        ['Mercedes','Mercedes','E320'],
+                        ['Audi','Audi','A3'], 
+                        ['Astra','Opel','Astra Kombi'], 
+                        ['Caddy','VW','Caddy 1.6'], 
+                        ['Mamas Citroen','Citroen','Picasso'], 
+                        ['Golf Zicka','VW',' Golf 5']
                         ]
+
 sellers = ['Autohaus', 'Privat']
+fuel_types = ['Diesel', 'Benzin', 'Elektro', 'Gas']
+numberplates = ['TR-ES 48','TR-FS 85','TR-CS 43','B-AS 80','E-MS 79']
+
 
 users = User.order(:created_at).take(3)
 15.times do
   car_name_and_model = car_names_and_models.sample
   users.each { |user| user.cars.create!(
         car_name: car_name_and_model[0],
-        car_model: car_name_and_model[1],
+        car_brand: car_name_and_model[1],
+        car_model: car_name_and_model[2],
         purchase_price: rand(5000...40000).round(-3),
+        registrationdate: Time.at((7.years.ago.to_f - 3.years.ago.to_f)*rand + 1.years.ago.to_f),
         purchase_date: Time.at((5.years.ago.to_f - 1.years.ago.to_f)*rand + 1.years.ago.to_f),
-        seller:sellers.sample
+        milage_purchase_date: rand(1000...80000).round(-2), 
+        seller:sellers.sample,
+        fuel_type: fuel_types.sample,
+        numberplate: numberplates.sample,
+        cubic_capacity: rand(1600...4200).round(-2),
+        engine_power: rand(80...400).round(-2),
     ) }
 end
 
@@ -80,6 +91,7 @@ cars_sample = Car.order(:created_at).take(15)
         cents_per_liter:rand(80...140),
         filling_station: station_name_and_city[0],
         location: station_name_and_city[1],
-        liters:rand(30.0...75.0).round(1)
+        liters:rand(30.0...75.0).round(1),
+        filled_up:[true, false].sample
     ) }
 end
