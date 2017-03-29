@@ -95,3 +95,26 @@ cars_sample = Car.order(:created_at).take(15)
         filled_up:[true, false].sample
     ) }
 end
+
+## Repairs SAMPLES
+titles_and_descriptions = [
+    ['Reifenwechsel','Alle vier Reifen wurden durch Allzweckreifen getauscht'],
+    ['Licht','Licht vorne links wurde ausgetauscht'],
+    ['Tüv','Tüv wurde erneuert. Gilt jetzt bis 07/2016'],
+    ['Bremsscheibe','Bremsscheiben wurde erneurt. Bremsblock vorne links musste auch ausgetauscht werden']
+]
+
+garages = ['Herr Schmitz', 'Autohaus Subaru Berlin Spandau', 'Auto Hoff Trier']
+
+cars_sample = Car.order(:created_at).take(15)
+
+20.times do
+  title_and_description = titles_and_descriptions.sample
+  cars_sample.each { |car| car.repairs.create!(
+        repair_date: Time.at((3.years.ago.to_f - 1.years.ago.to_f)*rand + Time.zone.now.to_f),
+        title: title_and_description[0],
+        description: title_and_description[1],
+        billings_amount: rand(30.0...850.0).round(1),
+        garage: garages.sample
+    ) }
+end

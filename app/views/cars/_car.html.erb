@@ -1,13 +1,32 @@
-<tr id="car-<%= car.id %>">
-  <td class="col-md-5"><%= car.car_name %></td>
-  <td class="col-md-4"><%= car.purchase_price %> €</td>
-  <td class="col-md-1"><%= link_to car,:title => "Details anzeigen", class: "btn btn-default" do %>
-    <i class="glyphicon glyphicon-info-sign"></i>
-  <% end %></td>
-  <td class="col-md-1"><%= link_to edit_car_path(car.id),:title => "Auto bearbeiten", class: "btn btn-default" do %>
-    <i class="glyphicon glyphicon-edit"></i>
-  <% end %></td>
-  <td class="col-md-1"><%= link_to car, method: :delete, data: { confirm: "Auto wirklich löschen?" } ,:title => "Auto löschen", class: "btn btn-default" do %>
-    <i class="glyphicon glyphicon-remove"></i>
-  <% end %></td>
-</tr>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><b><%= car.car_name %></b></h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-4 " text-left>
+      <%= image_tag car.picture.url, width: '250', alt: "imgae of Car" %>
+    </div>
+    <div class="col-md-4">
+      <table class="table table-borderless">
+      <tr>
+        <th>Modell:</th>
+        <td><%= car.car_brand %> <%= car.car_model %></td>
+      </tr>
+      <tr>
+        <th>Autokennzeichen:</th>
+        <td><%= car.numberplate  %></td>
+      </tr> 
+      <tr>
+        <td><%= link_to 'Tankbuch', car_refuellings_path(car.id), :class => "btn btn-info" %></td>
+        <td><%= link_to 'Reparaturbuch', car_repairs_path(car.id), :class => "btn btn-info" %></td>
+      </tr>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">    
+    <%= link_to 'Details', car, :class => "btn btn-info" %> 
+    <%= link_to 'Editieren', edit_car_path(car.id), :class => "btn btn-success" %> 
+    <%= link_to 'Löschen', car, :class => "btn btn-danger", :method => :delete, 
+      data: { confirm: "Auto wirklich löschen?" } %> 
+  </div>
+</div>

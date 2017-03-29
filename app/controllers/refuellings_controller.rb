@@ -21,9 +21,17 @@ class RefuellingsController < ApplicationController
   end
 
   def update
+    #if current_user.cars.find(params[:id]).update_attributes(car_params) # in case you should be only allowed to update your own cars
+    if @refuelling.update_attributes(refuelling_params)
+      flash[:success] = "Tankeintrag aktualisiert"
+      redirect_to car_refuellings_path
+    else
+      render 'edit'
+    end
   end
 
   def edit
+    @refuelling = current_car.refuellings.find(params[:id])
   end
 
   def destroy
@@ -34,7 +42,7 @@ class RefuellingsController < ApplicationController
   end
 
   def index
-    @refuellings = current_car.refuellings
+    @refuellings = current_car.refuellings.paginate(page: params[:page],:per_page => 10)
     @car_id = current_car.id
   end
 

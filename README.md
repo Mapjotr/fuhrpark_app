@@ -5,13 +5,13 @@ application up and running.
 
 Things to do:
 
-* Add pagination in refuellings
-* Add repair model
-* modify car model --> add more information about cars, e.g. atueller kilometerstand, ps, 
 * modify refuelling model --> add validations, convert figures if wrong etc.
 * get better date-picker
-
-
+* get radio buttons inline (gem simple form?)
+* upload pdfs for billings 
+* make titles dynamic on index refuelling and repairs
+* add insurance details to car model
+* modify homepage guest and login
 
 Things you may want to cover:
 

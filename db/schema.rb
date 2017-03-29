@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328165806) do
+ActiveRecord::Schema.define(version: 20170329171321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170328165806) do
     t.integer  "cubic_capacity"
     t.integer  "engine_power"
     t.string   "numberplate"
+    t.string   "picture"
     t.index ["user_id", "created_at"], name: "index_cars_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_cars_on_user_id", using: :btree
   end
@@ -60,6 +61,19 @@ ActiveRecord::Schema.define(version: 20170328165806) do
     t.index ["car_id"], name: "index_refuellings_on_car_id", using: :btree
   end
 
+  create_table "repairs", force: :cascade do |t|
+    t.date     "repair_date"
+    t.string   "title"
+    t.string   "description"
+    t.float    "billings_amount"
+    t.text     "garage"
+    t.integer  "car_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["car_id", "created_at"], name: "index_repairs_on_car_id_and_created_at", using: :btree
+    t.index ["car_id"], name: "index_repairs_on_car_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -79,4 +93,5 @@ ActiveRecord::Schema.define(version: 20170328165806) do
   add_foreign_key "cars", "users"
   add_foreign_key "microposts", "users"
   add_foreign_key "refuellings", "cars"
+  add_foreign_key "repairs", "cars"
 end

@@ -1,22 +1,14 @@
 <table class="table table-striped">
    <tr id="car-header">
-    <th class="col-md-2">Datum</th>
-    <th class="col-md-2">Km-Stand</th>
-    <th class="col-md-1">€/l</th>
-    <th class="col-md-2">Tankstelle</th>
-    <th class="col-md-2">Stadt</th>
-    <th class="col-md-1">Liter</th>
-    <th class="col-md-2">Betrag (€)</th>
+    <th class="col-md-4">Datum</th>
+    <th class="col-md-4">Liter à €/l</th>
+    <th class="col-md-4">Ort</th>
   </tr> 
 <% @car.refuellings[0..4].each do |refuelling| %>
   <tr id="car-<%= refuelling.id %>">
-    <td class="col-md-2"><%= refuelling.refuel_date.strftime('%d.%m.%Y')  %></td>
-    <td class="col-md-2"><%= refuelling.milage %></td>
-    <td class="col-md-1"><%= refuelling.cents_per_liter %></td>
-    <td class="col-md-2"><%= refuelling.filling_station %></td>
-    <td class="col-md-2"><%= refuelling.location %></td>
-    <td class="col-md-1"><%= refuelling.liters %></td>
-    <td class="col-md-2"><%= ((refuelling.liters * refuelling.cents_per_liter)/100).round(2) %></td>
+    <td class="col-md-4"><%= refuelling.refuel_date.strftime('%d.%m.%Y')  %></td>
+    <td class="col-md-4"><%= refuelling.liters %> à <%= (sprintf('%.2f', refuelling.cents_per_liter/100.0)).sub('.', ',')%> </td>
+    <td class="col-md-4"><%= refuelling.location %></td>
   </tr>      
 <% end %>
 </table>
@@ -24,5 +16,6 @@
   <%= link_to "Zeige alle Einträge &raquo;".html_safe, 
     car_refuellings_path(@car.id), :title => "Zeige alle Einträge", 
     :class => "btn btn-default" 
-  %> 
+  %>
+  <%= link_to 'Neuer Tankbucheintrag', new_car_refuelling_path((@car.id)), :class => "btn btn-success" %> 
 </p>

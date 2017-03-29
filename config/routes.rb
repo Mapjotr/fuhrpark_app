@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy]
   resources :cars do
     resources :refuellings
+    resources :repairs
   end
 end

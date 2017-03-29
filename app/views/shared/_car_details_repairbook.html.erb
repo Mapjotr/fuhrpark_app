@@ -1,8 +1,21 @@
 <table class="table table-striped">
    <tr id="car-header">
-    <th class="col-md-3">Datum</th>
-    <th class="col-md-7">Reparatur</th>
-    <th class="col-md-2">Kosten</th>
+    <th class="col-md-4">Datum</th>
+    <th class="col-md-4">Title</th>
+    <th class="col-md-4">Betrag</th>
   </tr> 
+<% @car.repairs[0..4].each do |repair| %>
+  <tr id="car-<%= repair.id %>">
+    <td class="col-md-4"><%= repair.repair_date.strftime('%d.%m.%Y')  %></td>
+    <td class="col-md-4"><%= repair.title %> </td>
+    <td class="col-md-4"><%= repair.billings_amount %></td>
+  </tr>      
+<% end %>
 </table>
-<p><a class="btn btn-default" href="#" role="button">Zeige alle Reparaturen &raquo;</a></p>
+<p>
+  <%= link_to "Zeige alle Reparaturen &raquo;".html_safe, 
+    car_repairs_path(@car.id), :title => "Zeige alle Reparaturen", 
+    :class => "btn btn-default" 
+  %>
+  <%= link_to 'Neue Reparatur', new_car_repair_path((@car.id)), :class => "btn btn-success" %> 
+</p>

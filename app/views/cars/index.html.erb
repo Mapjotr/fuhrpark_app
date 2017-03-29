@@ -1,14 +1,11 @@
 <% provide(:title, 'Alle Autos') %>
-
 <div class="row">
   <aside class="col-md-2">
     <div class="btn-toolbar">
-		<%= link_to 'Neues Auto', new_car_path, :class => "btn btn-primary btn-block" %> 
+		<%= link_to 'Neues Auto', new_car_path, :class => "btn btn-success btn-block" %> 
     </div>
   </aside>
   <div class="col-md-10">
-      <table class="table table-striped">
         <%= render @cars %>
-      </table>
   </div>
 </div>

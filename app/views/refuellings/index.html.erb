@@ -3,18 +3,18 @@
 <div class="row">
   <div class="col-md-2">
     <div class="btn-toolbar">
-    <%= link_to 'Neuer Eintrag', new_car_refuelling_path(@car_id), :class => "btn btn-primary btn-block" %> 
-    <%= link_to 'Zurück zu Auto', car_path(@car_id), :class => "btn btn-primary btn-block" %> 
+      <%= link_to 'Neuer Tankbucheintrag', new_car_refuelling_path(@car_id), :class => "btn btn-success" %> 
     </div>
   </div>
   <div class="col-md-10">
+      <h1>Tankbuch Caddy Berlin </h1>
       <table class="table table-striped">
       <tr id="refuelling-header">
         <th class="col-md-1">Datum</th>
         <th class="col-md-1">Km-Stand</th>
         <th class="col-md-1">€/l</th>
         <th class="col-md-2">Tankstelle</th>
-        <th class="col-md-2">Stadt</th>
+        <th class="col-md-2">Ort</th>
         <th class="col-md-1">Liter</th>
         <th class="col-md-2">Betrag (€)</th>
         <th class="col-md-1"></th>
@@ -22,5 +22,6 @@
       </tr> 
         <%= render @refuellings %>
       </table>
+      <%= will_paginate @refuellings, :previous_label => 'Vorige', :next_label => 'Weiter' %>
   </div>
 </div>

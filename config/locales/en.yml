@@ -19,30 +19,61 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-
+# conmpare http://guides.rubyonrails.org/i18n.html (Section "4.5.1 Error Message Scopes")
 en:
   activerecord:
     attributes:
+      car:
+        car_name: "Name des Autos"
+        car_brand: "Automarke"
+        car_model: "Modell-Bezeichnung"
+        numberplate: "Autokennzeichen"
+        fuel_type: "Treibstofftyp"
+        cubic_capacity: "Hubraum"
+        engine_power: "Leistung (PS)"
+        seller: "Verkäufer"
+        purchase_date: "Kaufdatum"
+        purchase_price: "Kaufpreis"
+        registrationdate: "Erstzulassung"
+        milage_purchase_date: "Km-Stand bei Kauf"      
       refuelling:
         refuel_date: "Tankdatum"
         milage: "Kilometerstand"
         cents_per_liter: "Preis pro Liter"
         liters: "Liter"
-        filling_station: "Name des Tankstelle"
+        filling_station: "Name der Tankstelle"
         location: "Ort"
+      repair:
+        repair_date: 'Rechungsdatum'
+        title: 'Titel für Reparatur'
+        description: 'Beschreibung'
+        billings_amount: 'Rechnungsbetrag'
+        garage: 'Name der Werkstatt'
     errors:
-      models:
-        refuelling:
-          attributes:
-            refuel_date:
-              blank: 'muss ausgefüllt sein'
-            milage:
-              blank: 'muss ausgefüllt sein'
-            cents_per_liter:
-              blank: 'muss ausgefüllt sein'
-            liters:
-              blank: 'muss ausgefüllt sein'
-            filling_station:
-              blank: 'muss ausgefüllt sein'
-            location:
-              blank: 'muss ausgefüllt sein'                
+      messages:
+        blank: 'muss ausgefüllt sein.'
+        too_long: ' ist zu lang.'
+        greater_than: ' muss höher sein'
+  helpers:
+    placeholder:
+      car:
+        car_name: "Ugs. Name des Auto (z.B. BMW Papa)"
+        car_brand: "Marke des Autos (z.B. VW order BMW)"
+        car_model: "Genaue Modell-Bezeichnung (z.B. Caddy 1.6d)"
+        numberplate: "Autokennzeichen (z.B. TR-ES 12)"
+        cubic_capacity: "Hubraum (zb. 1600)"
+        engine_power: "Leistung in PS"
+        seller: "Gekauft von..."
+        purchase_date: "Kaufdatum"
+        purchase_price: "Kaufpreis in Euro"
+        registrationdate: "Datum der Erstzulassung"
+        milage_purchase_date: "Km-Stand bei Kauf"
+      repair:
+        repair_date: 'Rechungsdatum'
+        title: 'Titel der Reparatur (zB. "Reifenwechsel" oder "TÜV")'
+        description: 'Ausführliche Beschreibung der Reparaturen'
+        billings_amount: 'Gesamtbetrag der Rechnung'
+        garage: 'Name der Werkstatt'
+  will_paginate:
+    next_label: "weiter →"
+    previous_label: "← Vorige"

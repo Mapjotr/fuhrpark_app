@@ -33,6 +33,10 @@ textarea {
   }
 }
 
+.bottom-buffer { 
+  margin-bottom:50px; 
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,17 +44,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2.5em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: left;
+  font-weight: normal;
+  color: $gray-light;
 }
 
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 22px;
+  text-align: left;
   font-weight: normal;
   color: $gray-light;
 }
@@ -303,6 +311,16 @@ span.picture {
   .img-circle {
       border-radius: 100%;
   }
+
+/* tables */
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
 
 /* miscellaneous */
 

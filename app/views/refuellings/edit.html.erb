@@ -1,2 +1,9 @@
-<h1>Refuellings#edit</h1>
-<p>Find me in app/views/refuellings/edit.html.erb</p>
+<% provide(:title, "Ändere Tankeintrag") %>
+<% provide(:button_text, "Speichere Änderungen") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+  <h1>Aktualisiere den Tankeintrag</h1>
+    <%= render 'form' %>
+  </div>
+</div>
