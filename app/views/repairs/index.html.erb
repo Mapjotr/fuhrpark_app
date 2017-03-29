@@ -1,0 +1,14 @@
+<% provide(:title, 'Reparaturen') %>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="btn-toolbar">
+    <%= link_to 'Neuer Eintrag', new_car_repair_path(@car_id), :class => "btn btn-success btn-block" %> 
+    </div>
+  </div>
+  <div class="col-md-10">
+    <h1>Reparaturbuch Caddy Berlin </h1>
+    <%= render @repairs %>
+    <%= will_paginate @repairs, :previous_label => 'Vorige', :next_label => 'Weiter' %>
+  </div>
+</div>

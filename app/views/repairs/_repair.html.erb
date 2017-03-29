@@ -1,0 +1,32 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><b><%= repair.title %></b></h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-4">
+      <table class="table table-borderless">
+      <tr id="repair-header">
+        <th>Datum:</th>
+        <td><%= repair.repair_date.strftime('%d.%m.%Y')  %></td>
+      </tr> 
+      <tr id="repair-header">
+        <th>Werkstatt:</th>
+        <td><%= repair.garage %></td>
+      </tr> 
+      <tr id="repair-header">
+        <th>Betrag:</th>
+        <td><%= repair.billings_amount %> €</td>
+      </tr> 
+      </table>
+    </div>
+    <div class="col-md-8 " text-left>
+      <p><b>Beschreibung:</b></p>
+      <%= repair.description %>
+    </div>
+  </div>
+  <div class="panel-footer">    
+    <%= link_to 'Editieren', edit_car_repair_path(@car_id,repair.id), :class => "btn-sm btn-info" %> 
+    <%= link_to 'Löschen', car_repair_path(@car_id,repair.id), :class => "btn-sm btn-danger", :method => :delete, 
+      data: { confirm: "Reparatur wirklich löschen?" } %> 
+  </div>
+</div>
