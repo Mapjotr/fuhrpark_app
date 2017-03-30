@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="col-md-10">
-    <h1>Reparaturbuch Caddy Berlin </h1>
+    <h1>Reparaturbuch <%= @car_name %> </h1>
     <%= render @repairs %>
     <%= will_paginate @repairs, :previous_label => 'Vorige', :next_label => 'Weiter' %>
   </div>

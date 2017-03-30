@@ -28,6 +28,11 @@
 
   <%= f.label :engine_power %>
   <%= f.number_field :engine_power, placeholder: true, class: 'form-control' %>
+
+  <%= f.label :emission_class %>
+  <%= select_tag(:emission_class, options_for_select([["EUR 1","EUR 1"],["EUR 2","EUR 2"],
+  ["EUR 3","EUR 3"],["EUR 4","EUR 4"],["EUR 5","EUR 5"],["EUR 6","EUR 6"]],"EUR 4"),{class: "form-control"})%>
+ 
   </div>
 
   <div>
@@ -48,6 +53,31 @@
 
   <%= f.label :milage_purchase_date %>
   <%= f.number_field :milage_purchase_date, placeholder: true, class: 'form-control' %>
+
+  <div>
+  <h2>Angaben zur Versicherung</h2>
+  </div>
+
+  <%= f.label :insurance_nr %>
+  <%= f.text_field :insurance_nr,placeholder: true, class: 'form-control' %>
+
+  <%= f.label :sf_class %>
+  <%= f.text_field :sf_class, placeholder: true, class: 'form-control' %>
+
+  <%= f.label :sf_perc %>
+  <%= f.number_field :sf_perc, placeholder: true, class: 'form-control' %>
+
+  <%= f.label :liability %>
+  <%= f.number_field :liability, placeholder: true, class: 'form-control' %>
+
+  <%= f.label :comprehensive_part %>
+  <%= f.number_field :comprehensive_part, placeholder: true, class: 'form-control' %>
+
+  <%= f.label :comprehensive_full %>
+  <%= f.number_field :comprehensive_full, placeholder: true, class: 'form-control' %>
+
+  <%= f.label :tax %>
+  <%= f.number_field :tax, placeholder: true, class: 'form-control' %>
 
   <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
 

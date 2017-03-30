@@ -9,9 +9,9 @@ Things to do:
 * get better date-picker
 * get radio buttons inline (gem simple form?)
 * upload pdfs for billings 
-* make titles dynamic on index refuelling and repairs
-* add insurance details to car model
+* fix input fields --> float,integer etx. 
 * modify homepage guest and login
+* update .gitignore
 
 Things you may want to cover:
 

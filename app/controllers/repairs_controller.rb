@@ -43,6 +43,7 @@ class RepairsController < ApplicationController
   def index
     @repairs = current_car.repairs.paginate(page: params[:page],:per_page => 3)
     @car_id = current_car.id
+    @car_name = current_car.car_name
   end
 
 private

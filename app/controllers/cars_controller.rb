@@ -51,6 +51,8 @@ private
 	  params.require(:car).permit(:car_name, :car_brand, :car_model, :purchase_price,
 	                               :purchase_date, :seller, :fuel_type, :cubic_capacity, 
                                  :engine_power, :registrationdate, :milage_purchase_date, :numberplate,:picture,
+                                 :emission_class,:insurance_nr,:sf_class,:sf_perc,:liability,:comprehensive_part,
+                                 :comprehensive_full,:tax,:sold,:sold_date,:sale_price,:buyer,
                                  refuellings_attributes: [:id, :refuel_date, :milage, :cents_per_liter,
                                  :filling_station, :location, :liters, :filled_up, :_destroy])
 	end

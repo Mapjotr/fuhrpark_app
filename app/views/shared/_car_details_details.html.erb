@@ -19,4 +19,8 @@
     <td>Hubraum</td>
     <td><%= number_with_delimiter(@car.cubic_capacity.round(0), :delimiter => '.') %></td>
   </tr>
+  <tr>
+    <td>Schadstoffklasse</td>
+    <td><%= @car.emission_class %></td>
+  </tr>
 </table>

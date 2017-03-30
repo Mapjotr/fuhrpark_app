@@ -1,0 +1,30 @@
+<table class="table table-striped">
+  <tr>
+    <td>Versicherungs- Nr</td>
+    <td><%= @car.insurance_nr %></td>
+  </tr>
+  <tr>
+    <td>SF-Klasse (Haftpflicht)</td>
+    <td><%= @car.sf_class %> (<%= @car.sf_perc %>%)</td>
+  </tr>
+  <tr>
+    <td>Haftplicht</td>
+    <td><%= @car.liability %> €</td>
+  </tr>
+  <tr>
+    <td>Teilkasko</td>
+    <td><%= @car.comprehensive_part %> € </td>
+  </tr>
+  <tr>
+    <td>Vollkasko</td>
+    <td><%= @car.comprehensive_full %> €</td>
+  </tr>
+  <tr>
+    <td>Summe</td>
+    <td><%= ((@car.liability + @car.comprehensive_part) + ((@car.liability + @car.comprehensive_part)*19)/100.0).round(2) %> €</td>
+  </tr>
+  <tr>
+    <td>Steuer</td>
+    <td><%= @car.tax %> €</td>
+  </tr>
+</table>

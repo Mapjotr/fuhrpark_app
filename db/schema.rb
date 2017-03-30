@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20170329171321) do
     t.integer  "cubic_capacity"
     t.integer  "engine_power"
     t.string   "numberplate"
+    t.string   "emission_class"
+    t.string   "insurance_nr"
+    t.string   "sf_class"
+    t.integer  "sf_perc"
+    t.float    "liability"
+    t.float    "comprehensive_part"
+    t.float    "comprehensive_full"
+    t.float    "tax"
+    t.boolean  "sold"
+    t.date     "sold_date"
+    t.integer  "sale_price"
+    t.string   "buyer"
     t.string   "picture"
     t.index ["user_id", "created_at"], name: "index_cars_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_cars_on_user_id", using: :btree

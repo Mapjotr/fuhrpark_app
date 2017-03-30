@@ -55,7 +55,8 @@ car_names_and_models =   [['BMW Papa','BMW', '7'],
 sellers = ['Autohaus', 'Privat']
 fuel_types = ['Diesel', 'Benzin', 'Elektro', 'Gas']
 numberplates = ['TR-ES 48','TR-FS 85','TR-CS 43','B-AS 80','E-MS 79']
-
+insurance_nrs = ["51.213.726  466","51.213.726","51.213.720  466"]
+buyers = ["Verschenkt and Ursula und Guntram", "Werner,Trier","Russe, St.Petersburg"]
 
 users = User.order(:created_at).take(3)
 15.times do
@@ -73,6 +74,18 @@ users = User.order(:created_at).take(3)
         numberplate: numberplates.sample,
         cubic_capacity: rand(1600...4200).round(-2),
         engine_power: rand(80...400).round(-2),
+        emission_class: "EUR #{rand(1..6)}",
+        insurance_nr: insurance_nrs.sample,
+        sf_class: rand(1...30),
+        sf_perc: rand(1...100),
+        liability: rand(30.0...500.0).round(1),
+        comprehensive_part: rand(30.0...500.0).round(1),
+        comprehensive_full: rand(30.0...500.0).round(1),
+        tax: rand(30.0...500.0).round(1),
+        sold: [true, false].sample,
+        sold_date: Time.at((2.years.ago.to_f - 1.years.ago.to_f)*rand + Time.zone.now.to_f),
+        sale_price: rand(5000...40000).round(-3),
+        buyer: buyers.sample
     ) }
 end
 
