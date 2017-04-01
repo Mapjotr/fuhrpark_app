@@ -1,12 +1,6 @@
 <div class="center jumbotron">
-	<h1>Fuhrpark Klaus Schmitz</h1>
-	<p>Willkommen auf der Seite des Fuhrparkes, <%= @test_variable %></p>
-	<%= image_tag("caddy.jpg", alt: "VW Caddy",width:"360")%>
+	<h2>Willkommen bei der Fuhrpark App! </h2>
 	<br>
-	<br>
-	<%= link_to "Melde dich jetzt an!", signup_path, class: "btn btn-lg btn-primary" %>
-	<br>
-	<p>Anzahl der bereits angemeldeten Personen: <%= @count %></p>
+	<div><%= link_to "Melde dich jetzt an!", signup_path, class: "btn btn-lg btn-primary" %></div>
+	<p><small>(Oder logge Dich rechts oben ein...)</small> </p>
 </div>
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
-          'http://rubyonrails.org/' %>

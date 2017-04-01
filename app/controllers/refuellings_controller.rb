@@ -1,4 +1,7 @@
 class RefuellingsController < ApplicationController
+  before_action :logged_in_user
+  before_action :correct_user,    only: [:edit,:update,:destroy]
+  before_action :admin_user,      only: :destroy
   
   def show
     @refuelling = Refuelling.find(params[:id])

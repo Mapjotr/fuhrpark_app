@@ -1,24 +1,12 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, 'Meine Autos') %>
+<h1>Meine Autos (<%= current_user.cars.length %>)</h1>
 <div class="row">
   <aside class="col-md-2">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-      </h1>
-    </section>
-    <section class="user_info">
-      <h2>
-        <%= @user.name %>
-      </h2>
-    </section>
+    <div class="btn-toolbar">
+    <%= link_to 'Neues Auto', new_car_path, :class => "btn btn-success btn-block" %> 
+    </div>
   </aside>
   <div class="col-md-10">
-    <% if @user.cars.any? %>
-      <h3>Autos (<%= @user.cars.count %>)</h3>
-      <table class="table table-striped">
-        <%= render @cars %>
-      </table>
-      <%= will_paginate @cars %>
-    <% end %>
+        <%= render current_user.cars %>
   </div>
 </div>

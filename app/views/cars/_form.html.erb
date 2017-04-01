@@ -1,6 +1,6 @@
 <%= simple_form_for(@car) do |f| %>
   <div>
-    <h2>Angaben zum Auto</h2>
+    <h2 class="h2_formular">Angaben zum Auto</h2>
   </div>
   <%= f.input :car_name %>
   <%= f.input :car_brand %>
@@ -25,7 +25,7 @@
   %>
 
   <div>
-  <h2>Angaben zum Kauf</h2>
+    <h2 class="h2_formular">Angaben zum Kauf</h2>
   </div>
   <%= f.input :seller %>
   <%= f.input :purchase_date %>
@@ -33,7 +33,7 @@
   <%= f.input :registrationdate %>
   <%= f.input :milage_purchase_date %>
   <div>
-    <h2>Angaben zur Versicherung</h2>
+    <h2 class="h2_formular">Angaben zur Versicherung</h2>
   </div>
   <%= f.input :insurance_nr %>
   <%= f.input :sf_class %>

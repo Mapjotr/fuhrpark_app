@@ -29,6 +29,18 @@ module SessionsHelper
 	  end
 	end
 
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
+
+  #Before filters
+
+  #confirm the correct user
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !current_user.nil?

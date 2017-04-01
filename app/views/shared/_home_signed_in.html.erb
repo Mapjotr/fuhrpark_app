@@ -1,16 +1,12 @@
+<% provide(:title, 'Meine Autos') %>
+<h1 class="h1_formular">Meine Autos (<%= @user_cars.length %>)</h1>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= render 'shared/user_info' %>
-    </section>
-    <section class="micropost_form">
-      <%= render 'shared/micropost_form' %>
-    </section>
-    <span>
-    <span><%= link_to "Neues Auto", '#' %></span>
+  <aside class="col-md-2">
+    <div class="btn-toolbar">
+    <%= link_to 'Neues Auto', new_car_path, :class => "btn btn-success btn-block" %> 
+    </div>
   </aside>
-  <div class="col-md-8">
-    <h3>Micropost Feed</h3>
-    <%= render 'shared/feed' %>
+  <div class="col-md-10">
+        <%= render @user_cars %>
   </div>
 </div>
