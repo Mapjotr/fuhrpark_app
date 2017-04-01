@@ -1,20 +1,12 @@
-<%= form_for @repair, url: car_repairs_path, html: { method: :post }  do |f| %>
-  <%= render 'shared/error_messages', object: @repair %>
+<%= simple_form_for @repair, url: car_repairs_path, html: { method: :post }  do |f| %>
+  <%= f.input :repair_date %>
+  <%= f.input :title %>
+  <%= f.input :description, 
+      :as   => :text,
+      :input_html => {:rows => 9 }
+      %>
+  <%= f.input :billings_amount, value: number_to_currency(f.object.billings_amount.to_f), step: :any %>
 
-  <%= f.label :repair_date %>
-  <%= f.date_field :repair_date, placeholder: "Tankdatum", class: 'form-control' %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title, placeholder: true, class: 'form-control' %>
-
-  <%= f.label :description %>
-  <%= f.text_area  :description, placeholder: true, class: 'form-control', :rows => "8" %>
-
-  <%= f.label :billings_amount %>
-  <%= f.number_field :billings_amount, placeholder: true, class: 'form-control' %>
-
-  <%= f.label :garage %>
-  <%= f.text_field :garage, placeholder: true, class: 'form-control' %>
-
-  <%= f.submit yield(:button_text), class: "btn btn-success" %>
+  <%= f.input :garage %>
+  <%= f.button :submit, yield(:button_text), class: "btn btn-success" %>
 <% end %>

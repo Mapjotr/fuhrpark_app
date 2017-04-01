@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 20170329171321) do
   create_table "cars", force: :cascade do |t|
     t.string   "car_name"
     t.string   "car_model"
-    t.float    "purchase_price"
+    t.decimal  "purchase_price",       precision: 8, scale: 2
     t.date     "purchase_date"
     t.string   "seller"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.string   "car_brand"
     t.date     "registrationdate"
     t.integer  "milage_purchase_date"
@@ -35,13 +35,13 @@ ActiveRecord::Schema.define(version: 20170329171321) do
     t.string   "insurance_nr"
     t.string   "sf_class"
     t.integer  "sf_perc"
-    t.float    "liability"
-    t.float    "comprehensive_part"
-    t.float    "comprehensive_full"
-    t.float    "tax"
+    t.decimal  "liability",            precision: 8, scale: 2
+    t.decimal  "comprehensive_part",   precision: 8, scale: 2
+    t.decimal  "comprehensive_full",   precision: 8, scale: 2
+    t.decimal  "tax",                  precision: 8, scale: 2
     t.boolean  "sold"
     t.date     "sold_date"
-    t.integer  "sale_price"
+    t.decimal  "sale_price",           precision: 8, scale: 2
     t.string   "buyer"
     t.string   "picture"
     t.index ["user_id", "created_at"], name: "index_cars_on_user_id_and_created_at", using: :btree
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 20170329171321) do
   create_table "refuellings", force: :cascade do |t|
     t.date     "refuel_date"
     t.integer  "milage"
-    t.integer  "cents_per_liter"
+    t.decimal  "cents_per_liter", precision: 8, scale: 2
     t.string   "filling_station"
     t.string   "location"
     t.float    "liters"
     t.integer  "car_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.boolean  "filled_up"
     t.index ["car_id", "created_at"], name: "index_refuellings_on_car_id_and_created_at", using: :btree
     t.index ["car_id"], name: "index_refuellings_on_car_id", using: :btree
@@ -76,12 +76,12 @@ ActiveRecord::Schema.define(version: 20170329171321) do
   create_table "repairs", force: :cascade do |t|
     t.date     "repair_date"
     t.string   "title"
-    t.string   "description"
-    t.float    "billings_amount"
-    t.text     "garage"
+    t.text     "description"
+    t.decimal  "billings_amount", precision: 8, scale: 2
+    t.string   "garage"
     t.integer  "car_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.index ["car_id", "created_at"], name: "index_repairs_on_car_id_and_created_at", using: :btree
     t.index ["car_id"], name: "index_repairs_on_car_id", using: :btree
   end

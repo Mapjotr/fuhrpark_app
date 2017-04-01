@@ -3,7 +3,7 @@ class CreateCars < ActiveRecord::Migration[5.0]
     create_table :cars do |t|
       t.string :car_name
       t.string :car_model
-      t.float :purchase_price
+      t.decimal :purchase_price, :precision => 8, :scale => 2
       t.date :purchase_date
       t.string :seller
       t.references :user, foreign_key: true

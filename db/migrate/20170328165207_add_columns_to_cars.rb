@@ -11,13 +11,13 @@ class AddColumnsToCars < ActiveRecord::Migration[5.0]
     add_column :cars, :insurance_nr, :string
     add_column :cars, :sf_class, :string
     add_column :cars, :sf_perc, :integer
-    add_column :cars, :liability, :float
-    add_column :cars, :comprehensive_part, :float
-    add_column :cars, :comprehensive_full, :float
-    add_column :cars, :tax, :float
+    add_column :cars, :liability, :decimal, :precision => 8, :scale => 2
+    add_column :cars, :comprehensive_part, :decimal, :precision => 8, :scale => 2
+    add_column :cars, :comprehensive_full, :decimal, :precision => 8, :scale => 2
+    add_column :cars, :tax, :decimal, :precision => 8, :scale => 2
     add_column :cars, :sold, :boolean
     add_column :cars, :sold_date, :date
-    add_column :cars, :sale_price, :integer
+    add_column :cars, :sale_price, :decimal, :precision => 8, :scale => 2
     add_column :cars, :buyer, :string
   end
 end

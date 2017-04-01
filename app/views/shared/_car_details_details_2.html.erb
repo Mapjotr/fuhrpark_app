@@ -9,7 +9,7 @@
   </tr>
   <tr>
     <td>Kaufpreis</td>
-    <td><%= number_with_delimiter(@car.purchase_price.round(0), :delimiter => '.') %> €</td>
+    <td><%= number_to_currency(@car.purchase_price) %></td>
   </tr>
   <tr>
     <td>Km-Stand bei Kauf</td>

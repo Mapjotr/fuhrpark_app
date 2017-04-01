@@ -8,7 +8,7 @@
   <tr id="car-<%= repair.id %>">
     <td class="col-md-4"><%= repair.repair_date.strftime('%d.%m.%Y')  %></td>
     <td class="col-md-4"><%= repair.title %> </td>
-    <td class="col-md-4"><%= repair.billings_amount %></td>
+    <td class="col-md-4"><%= number_to_currency(repair.billings_amount) %></td>
   </tr>      
 <% end %>
 </table>

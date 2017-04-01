@@ -15,7 +15,7 @@
       </tr> 
       <tr id="repair-header">
         <th>Betrag:</th>
-        <td><%= repair.billings_amount %> €</td>
+        <td><%= number_to_currency(repair.billings_amount) %></td>
       </tr> 
       </table>
     </div>

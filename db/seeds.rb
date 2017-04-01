@@ -65,7 +65,7 @@ users = User.order(:created_at).take(3)
         car_name: car_name_and_model[0],
         car_brand: car_name_and_model[1],
         car_model: car_name_and_model[2],
-        purchase_price: rand(5000...40000).round(-3),
+        purchase_price: rand(5000.0...40000.0).round(-3),
         registrationdate: Time.at((7.years.ago.to_f - 3.years.ago.to_f)*rand + 1.years.ago.to_f),
         purchase_date: Time.at((5.years.ago.to_f - 1.years.ago.to_f)*rand + 1.years.ago.to_f),
         milage_purchase_date: rand(1000...80000).round(-2), 
@@ -78,13 +78,13 @@ users = User.order(:created_at).take(3)
         insurance_nr: insurance_nrs.sample,
         sf_class: rand(1...30),
         sf_perc: rand(1...100),
-        liability: rand(30.0...500.0).round(1),
-        comprehensive_part: rand(30.0...500.0).round(1),
-        comprehensive_full: rand(30.0...500.0).round(1),
-        tax: rand(30.0...500.0).round(1),
+        liability: rand(30.0...500.0).round(2),
+        comprehensive_part: rand(30.0...500.0).round(2),
+        comprehensive_full: rand(30.0...500.0).round(2),
+        tax: rand(30.0...500.0).round(2),
         sold: [true, false].sample,
         sold_date: Time.at((2.years.ago.to_f - 1.years.ago.to_f)*rand + Time.zone.now.to_f),
-        sale_price: rand(5000...40000).round(-3),
+        sale_price: rand(5000.0...40000.0).round(-3),
         buyer: buyers.sample
     ) }
 end
@@ -104,7 +104,7 @@ cars_sample = Car.order(:created_at).take(15)
         cents_per_liter:rand(80...140),
         filling_station: station_name_and_city[0],
         location: station_name_and_city[1],
-        liters:rand(30.0...75.0).round(1),
+        liters:rand(30.0...75.0).round(2),
         filled_up:[true, false].sample
     ) }
 end
@@ -127,7 +127,7 @@ cars_sample = Car.order(:created_at).take(15)
         repair_date: Time.at((3.years.ago.to_f - 1.years.ago.to_f)*rand + Time.zone.now.to_f),
         title: title_and_description[0],
         description: title_and_description[1],
-        billings_amount: rand(30.0...850.0).round(1),
+        billings_amount: rand(30.0...850.0).round(2),
         garage: garages.sample
     ) }
 end

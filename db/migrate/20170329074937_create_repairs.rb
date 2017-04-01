@@ -3,9 +3,9 @@ class CreateRepairs < ActiveRecord::Migration[5.0]
     create_table :repairs do |t|
       t.date :repair_date
       t.string :title
-      t.string :description
-      t.float :billings_amount
-      t.text :garage
+      t.text :description
+      t.decimal :billings_amount, :precision => 8, :scale => 2
+      t.string :garage
       t.references :car, foreign_key: true
 
       t.timestamps

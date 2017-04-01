@@ -48,6 +48,7 @@ en:
         sold_date: "Verkaufsdatum"
         sale_price: "Verkaufspreis"
         buyer: "Käufer"
+        picture: "Bilder"
       refuelling:
         refuel_date: "Tankdatum"
         milage: "Kilometerstand"
@@ -55,6 +56,7 @@ en:
         liters: "Liter"
         filling_station: "Name der Tankstelle"
         location: "Ort"
+        filled_up: "Komplett aufgetankt?"
       repair:
         repair_date: 'Rechungsdatum'
         title: 'Titel für Reparatur'
@@ -66,8 +68,11 @@ en:
         blank: 'muss ausgefüllt sein.'
         too_long: ' ist zu lang.'
         greater_than: ' muss höher sein'
-  helpers:
-    placeholder:
+  will_paginate:
+    next_label: "weiter →"
+    previous_label: "← Vorige"
+  simple_form:
+    placeholders:
       car:
         car_name: "Ugs. Name des Auto (z.B. BMW Papa)"
         car_brand: "Marke des Autos (z.B. VW order BMW)"
@@ -97,6 +102,21 @@ en:
         description: 'Ausführliche Beschreibung der Reparaturen'
         billings_amount: 'Gesamtbetrag der Rechnung'
         garage: 'Name der Werkstatt'
-  will_paginate:
-    next_label: "weiter →"
-    previous_label: "← Vorige"
+      refuelling:
+        milage: 'aktuelle Kilometerstand'
+        cents_per_liter: 'Cents pro Liter'
+        liters: 'getankte Liter'
+        filling_station: 'Name der Tankstelle (z.B. Total Lux)'
+        location: 'Ort der Tankstelle'
+    hints:
+      car:
+        picture: "Laden Sie ein Bild des Autos hoch"
+  number:
+      currency:
+          format:
+              format: "%n %u"
+              unit: "&euro;"
+              # These three are to override number.format and are optional
+              separator: ","
+              delimiter: "."
+              precision: 2

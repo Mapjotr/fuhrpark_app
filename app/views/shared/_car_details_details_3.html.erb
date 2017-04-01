@@ -5,26 +5,27 @@
   </tr>
   <tr>
     <td>SF-Klasse (Haftpflicht)</td>
-    <td><%= @car.sf_class %> (<%= @car.sf_perc %>%)</td>
+    <td><%= number_to_currency(@car.sf_class) %></td>
   </tr>
   <tr>
     <td>Haftplicht</td>
-    <td><%= @car.liability %> €</td>
+    <td><%= number_to_currency(@car.liability) %></td>
   </tr>
   <tr>
     <td>Teilkasko</td>
-    <td><%= @car.comprehensive_part %> € </td>
+    <td><%= number_to_currency(@car.comprehensive_part) %></td>
   </tr>
   <tr>
     <td>Vollkasko</td>
-    <td><%= @car.comprehensive_full %> €</td>
+    <td><%= number_to_currency(@car.comprehensive_full) %></td>
   </tr>
   <tr>
     <td>Summe</td>
-    <td><%= ((@car.liability + @car.comprehensive_part) + ((@car.liability + @car.comprehensive_part)*19)/100.0).round(2) %> €</td>
+    <td><%= number_to_currency(((@car.liability + @car.comprehensive_part) + ((@car.liability + @car.comprehensive_part)*19)/100.0))%>
+    </td>
   </tr>
   <tr>
     <td>Steuer</td>
-    <td><%= @car.tax %> €</td>
+    <td><%= number_to_currency(@car.tax) %></td>
   </tr>
 </table>
