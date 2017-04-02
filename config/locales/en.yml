@@ -68,6 +68,7 @@ en:
         blank: 'muss ausgefüllt sein.'
         too_long: ' ist zu lang.'
         greater_than: ' muss höher sein'
+        not_an_integer: ' muss eine ganze Zahl sein (ohne Komma).'
   will_paginate:
     next_label: "weiter →"
     previous_label: "← Vorige"
@@ -82,17 +83,17 @@ en:
         engine_power: "Leistung in PS"
         seller: "Gekauft von..."
         purchase_date: "Kaufdatum"
-        purchase_price: "Kaufpreis in Euro"
+        purchase_price: "Kaufpreis in € in folgender Form: 198.99"
         registrationdate: "Datum der Erstzulassung"
         milage_purchase_date: "Km-Stand bei Kauf"
         emission_class: " Euro Schadstoffklasse"
         insurance_nr: "Versicherungsnummer"
         sf_class: "Schadenfreiheitsklasse"
         sf_perc: "Haftplicht in %"
-        liability: "Haftplicht"
-        comprehensive_part: "Teilkasko"
-        comprehensive_full: "Vollkasko"
-        tax: "Steuer"
+        liability: "Haftplicht in € in folgender Form: 198.99"
+        comprehensive_part: "Teilkasko in € in folgender Form: 198.99"
+        comprehensive_full: "Vollkasko in € in folgender Form: 198.99"
+        tax: "Steuer in € in folgender Form: 198.99"
         sold_date: "Verkaufsdatum"
         sale_price: "Verkaufspreis"
         buyer: "Name des Käufers"

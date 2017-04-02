@@ -1,7 +1,9 @@
 class RefuellingsController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user,    only: [:edit,:update,:destroy]
-  before_action :admin_user,      only: :destroy
+  before_action only: [:edit, :update, :destroy] do
+    correct_user( current_car.user_id)
+  end
+  # before_action :admin_user,      only: :destroy
   
   def show
     @refuelling = Refuelling.find(params[:id])
@@ -46,6 +48,7 @@ class RefuellingsController < ApplicationController
 
   def index
     @refuellings = current_car.refuellings.paginate(page: params[:page],:per_page => 10)
+    @car = current_car
     @car_id = current_car.id
     @car_name = current_car.car_name
   end
@@ -53,7 +56,7 @@ class RefuellingsController < ApplicationController
 private
 
   def refuelling_params
-    params.require(:refuelling).permit(:refuel_date, :milage, :cents_per_liter,
+    params.require(:refuelling).permit(:id,:refuel_date, :milage, :cents_per_liter,
                                  :filling_station, :location, :liters, :filled_up)
   end
 

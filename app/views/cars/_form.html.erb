@@ -29,7 +29,7 @@
   </div>
   <%= f.input :seller %>
   <%= f.input :purchase_date %>
-  <%= f.input :purchase_price, as: :currency %>
+  <%= f.input :purchase_price, :value => (number_with_precision(f.object.purchase_price, :precision => 2) || 0) %>
   <%= f.input :registrationdate %>
   <%= f.input :milage_purchase_date %>
   <div>
@@ -38,10 +38,10 @@
   <%= f.input :insurance_nr %>
   <%= f.input :sf_class %>
   <%= f.input :sf_perc %>
-  <%= f.input :liability, as: :currency %>
-  <%= f.input :comprehensive_part, as: :currency %>
-  <%= f.input :comprehensive_full, as: :currency %>
-  <%= f.input :tax, as: :currency %>
+  <%= f.input :liability, :value => (number_with_precision(f.object.liability, :precision => 2) || 0) %>
+  <%= f.input :comprehensive_part, :value => (number_with_precision(f.object.comprehensive_part, :precision => 2) || 0.00) %>
+  <%= f.input :comprehensive_full, :value => (number_with_precision(f.object.comprehensive_full, :precision => 2) || 0.00) %>
+  <%= f.input :tax, :value => (number_with_precision(f.object.tax, :precision => 2) || 0.00)  %>
   <%= f.input :picture, 
         :as   => :file,
         :accept => 'image/jpeg,image/gif,image/png'

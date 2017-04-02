@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :cars do
     resources :refuellings
     resources :repairs
+    get :calc_consump, on: :collection 
   end
 end

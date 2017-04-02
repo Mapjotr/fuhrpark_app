@@ -1,7 +1,9 @@
 class RepairsController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user,    only: [:edit,:update,:destroy]
-  before_action :admin_user,      only: :destroy
+  before_action only: [:edit, :update, :destroy] do
+    correct_user( current_car.user_id)
+  end
+  #before_action :admin_user,      only: :destroy
     
   def show
     @repair = Repair.find(params[:id])
@@ -53,7 +55,7 @@ class RepairsController < ApplicationController
 private
 
   def repairs_params
-    params.require(:repair).permit(:repair_date, :title, :description,
+    params.require(:repair).permit(:id,:repair_date, :title, :description,
                                  :billings_amount, :garage)
   end
 
