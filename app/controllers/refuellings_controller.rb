@@ -47,7 +47,7 @@ class RefuellingsController < ApplicationController
   end
 
   def index
-    @refuellings = current_car.refuellings.paginate(page: params[:page],:per_page => 10)
+    @refuellings = current_car.refuellings.order('refuel_date DESC').paginate(page: params[:page],:per_page => 10)
     @car = current_car
     @car_id = current_car.id
     @car_name = current_car.car_name

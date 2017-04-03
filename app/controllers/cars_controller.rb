@@ -19,9 +19,17 @@ class CarsController < ApplicationController
     milage_date_2 = Car.find(car_id).refuellings.find(date2_id).milage
     date_date_1 = Car.find(car_id).refuellings.find(date1_id).refuel_date.strftime("%Y-%m-%d")
     date_date_2 = Car.find(car_id).refuellings.find(date2_id).refuel_date.strftime("%Y-%m-%d")
-    km_driven = milage_date_1 - milage_date_2
-    liters_total = Car.find(car_id).refuellings.where(:refuel_date => date_date_2..date_date_1).sum(:liters)
+    km_driven = milage_date_2 - milage_date_1
+    #puts "km_driven: #{km_driven}"
+    liters_total = Car.
+                    find(car_id).
+                    refuellings.
+                    where('refuel_date > ?', date_date_1).
+                    where('refuel_date <= ?', date_date_2). 
+                    sum(:liters)
+    #puts "liters_total: #{liters_total}"
     consumption = (liters_total*100/km_driven).round(2)
+    #puts "consumption: #{consumption}"
     #return milage.to_s
     respond_to do |format|
       format.html

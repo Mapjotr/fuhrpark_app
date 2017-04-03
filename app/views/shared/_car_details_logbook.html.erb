@@ -4,7 +4,7 @@
     <th class="col-md-4">Liter à €/l</th>
     <th class="col-md-4">Ort</th>
   </tr> 
-<% @car.refuellings[0..4].each do |refuelling| %>
+<% @car.refuellings.order('refuel_date DESC')[0..4].each do |refuelling| %>
   <tr id="car-<%= refuelling.id %>">
     <td class="col-md-4"><%= refuelling.refuel_date.strftime('%d.%m.%Y')  %></td>
     <td class="col-md-4"><%= refuelling.liters %> à <%= (sprintf('%.2f', refuelling.cents_per_liter/100.0)).sub('.', ',')%> </td>

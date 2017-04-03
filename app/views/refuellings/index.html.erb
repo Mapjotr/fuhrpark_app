@@ -5,13 +5,6 @@
     <div class="btn-toolbar">
       <%= link_to 'Neuer Tankbucheintrag', new_car_refuelling_path(@car_id), :class => "btn btn-success" %> 
     </div>
-    <div class="btn-toolbar">
-      <p>Errechne Verbrauch zwischen</p>
-      <%= collection_select('date1', @car.id, @car.refuellings.where(filled_up:true), :id, :refuel_date, {prompt: "Wähle ein Datum"}, {class: "form-control",id: "date1"}) %>
-      <p>und</p>
-      <%= collection_select('date2', 0, @car.refuellings.where(filled_up:true), :id, :refuel_date,{prompt: "Wähle ein Datum"}, {class: "form-control",id: "date2"}) %>
-      <p id='consump_result'></p>
-    </div>
   </div>
   <div class="col-md-10">
       <h1 class="h1_formular">Tankbuch <%= @car_name %> </h1>
@@ -32,11 +25,26 @@
       <%= will_paginate @refuellings, :previous_label => 'Vorige', :next_label => 'Weiter' %>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-3 offet col-md-offset-2">
+    <div class="btn-toolbar">
+      <p>Errechne Verbrauch zwischen</p>
+      <%= collection_select('date1', @car.id, @car.refuellings.where(filled_up:true).order('refuel_date'), :id, :refuel_date, {prompt: "Wähle erstes Datum"}, {class: "form-control",id: "date1"}) %>
+      <%= collection_select('date2', 0, @car.refuellings.where(filled_up:true).order('refuel_date'), :id, :refuel_date,{prompt: "Wähle zweites Datum"}, {class: "form-control",id: "date2"}) %>
+      <%= link_to 'Errechne Verbrauch', '#', :class => "btn btn-success", :id => "calc_consump",:remote => true %>
+      
+    </div>
+  </div>
+    <div class="col-md-3" id="consump_result">
+      <p>Ihr Verbauch:<p>
+      <p id='consump_result_fig'><b></b></p>
+    </div>
+</div>
 
 
 <script type="text/javascript">
 
-  $('#date2').on('change', function() {
+  $('#calc_consump').on('click', function() {
       var date1_id = $('#date1').val()
       var date2_id = $('#date2').val()
       var car_id = <%= @car.id %>
@@ -48,8 +56,9 @@
         type: 'GET',
         success: function(json) {
           result = $.parseJSON(json);
-          var answer="Ihr Verbrauch: " + result.toString()  + ' l/100 km';
-          $('#consump_result').text(answer)
+          var answer= result.toString()  + ' l/100km';
+          $('#consump_result_fig').children('b').text(answer);
+          $('#consump_result').show()
          },
       });
   })

@@ -9,8 +9,7 @@ Things to do:
 * get better date-picker
 * get radio buttons inline (gem simple form?)
 * upload pdfs for billings 
-* fix input fields --> float,integer etx. 
-* modify homepage guest and login
+* Make more years available in date picker!
 * update .gitignore
 
 Things you may want to cover:
