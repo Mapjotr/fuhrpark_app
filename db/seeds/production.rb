@@ -100,22 +100,20 @@ caddy = Car.find_by(car_name:'Caddy')
 
 ## REFUELLING SAMPLES
 caddy.refuellings.create!(
-      refuel_date: Time.new(2017,1,17),
-      milage: 59000,
-      cents_per_liter:105,
-      filling_station: 'Shell Skalitzer',
-      location: 'Berlin',
-      liters: 50.0,
-      filled_up:true
+  refuel_date: Time.new(2017,1,17),
+  milage: 59000,
+  cents_per_liter:105,
+  filling_station: 'Shell Skalitzer',
+  location: 'Berlin',
+  liters: 50.0,
+  filled_up:true
   )
-end
 
 ## Repairs SAMPLES
 caddy.repairs.create!(
-        repair_date: Time.new(2017,1,17),
-        title: 'Neue reifen',
-        description: 'Alle vier Reifen wurden durch Allwetterreifen getauscht. Neuer Reifentyp: Michelin CrossClimate 205/55R16 94V',
-        billings_amount: 460.00,
-        garage: 'Reifen Sanders Berlin'
+  repair_date: Time.new(2017,1,17),
+  title: 'Neue reifen',
+  description: 'Alle vier Reifen wurden durch Allwetterreifen getauscht. Neuer Reifentyp: Michelin CrossClimate 205/55R16 94V',
+  billings_amount: 460.00,
+  garage: 'Reifen Sanders Berlin'
 )
-end
