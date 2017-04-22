@@ -93,10 +93,7 @@ peter.cars.create!(
       comprehensive_part: 231.55,
       comprehensive_full: 0.00,
       tax: 262.00,
-      sold: false,
-      sold_date: Time.at((2.years.ago.to_f - 1.years.ago.to_f)*rand + Time.zone.now.to_f),
-      sale_price: 00.0,
-      buyer: ''
+      sold: false
   ) 
 
 caddy = Car.find_by(car_name:'Caddy')
