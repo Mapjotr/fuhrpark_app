@@ -96,7 +96,7 @@ peter.cars.create!(
       sold: false
   ) 
 
-caddy = Car.find_by(car_name:'Caddy')
+caddy = Car.find_by(car_model:'Caddy Maxi 1.6 TDI')
 
 ## REFUELLING SAMPLES
 caddy.refuellings.create!(
