@@ -68,3 +68,57 @@ users.each { |user| user.cars.create!(
       sale_price: rand(5000.0...40000.0).round(-3),
       buyer: buyers.sample
   ) }
+
+# Caddy
+peter = User.find_by(email:'peter.schmiz@gmx.de')
+
+peter.cars.create!(
+      car_name: 'Caddy',
+      car_brand: 'VW',
+      car_model: 'Caddy Maxi 1.6 TDI',
+      purchase_price: 13500,
+      registrationdate: Time.new(2016,03,01),
+      purchase_date: Time.new(2016,06,15),
+      milage_purchase_date: 25000, 
+      seller:'Baumann Nürnberg',
+      fuel_type: 'Diesel',
+      numberplate: 'TR-CS-340',
+      cubic_capacity: 1600,
+      engine_power: 102,
+      emission_class: "EUR 4",
+      insurance_nr: '51.213.728 466',
+      sf_class: 10,
+      sf_perc: 50,
+      liability: 296.00,
+      comprehensive_part: 231.55,
+      comprehensive_full: 0.00,
+      tax: 262.00,
+      sold: false,
+      sold_date: Time.at((2.years.ago.to_f - 1.years.ago.to_f)*rand + Time.zone.now.to_f),
+      sale_price: 00.0,
+      buyer: ''
+  ) 
+
+caddy = Car.find_by(car_name:'Caddy')
+
+## REFUELLING SAMPLES
+caddy.refuellings.create!(
+      refuel_date: Time.new(2017,1,17),
+      milage: 59000,
+      cents_per_liter:105,
+      filling_station: 'Shell Skalitzer',
+      location: 'Berlin',
+      liters: 50.0,
+      filled_up:true
+  )
+end
+
+## Repairs SAMPLES
+caddy.repairs.create!(
+        repair_date: Time.new(2017,1,17),
+        title: 'Neue reifen',
+        description: 'Alle vier Reifen wurden durch Allwetterreifen getauscht. Neuer Reifentyp: Michelin CrossClimate 205/55R16 94V',
+        billings_amount: 460.00,
+        garage: 'Reifen Sanders Berlin'
+)
+end
