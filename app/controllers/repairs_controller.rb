@@ -56,7 +56,7 @@ private
 
   def repairs_params
     params.require(:repair).permit(:id,:repair_date, :title, :description,
-                                 :billings_amount, :garage)
+                                 :billings_amount, :garage, :file)
   end
 
   def current_car

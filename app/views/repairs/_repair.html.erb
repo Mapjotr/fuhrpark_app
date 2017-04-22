@@ -16,7 +16,15 @@
       <tr id="repair-header">
         <th>Betrag:</th>
         <td><%= number_to_currency(repair.billings_amount) %></td>
-      </tr> 
+      </tr>
+      <% if repair.file?  %>
+        <tr id="repair-header">
+          <th>Rechnung:</th>
+          <td><%= link_to 'Rechnung', asset_path(repair.file.url), target: :_blank, :class => "btn-sm btn-info" if repair.file?  %> </td>
+        </tr>
+      <% end %>
+
+      
       </table>
     </div>
     <div class="col-md-8 " text-left>

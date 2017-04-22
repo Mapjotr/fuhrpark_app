@@ -112,6 +112,8 @@ en:
     hints:
       car:
         picture: "Laden Sie ein Bild des Autos hoch"
+      repair:
+        file: "Laden Sie die Rechnung als PDF, jpeg oder png hoch"
   number:
       currency:
           format:

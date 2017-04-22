@@ -8,5 +8,9 @@
   <%= f.input :billings_amount, value: number_to_currency(f.object.billings_amount.to_f), step: :any %>
 
   <%= f.input :garage %>
+  <%= f.input :file, 
+        :as   => :file,
+        :accept => 'image/jpeg,image/gif,image/png,application/pdf'
+      %>
   <%= f.button :submit, yield(:button_text), class: "btn btn-success" %>
 <% end %>
