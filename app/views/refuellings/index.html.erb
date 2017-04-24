@@ -27,12 +27,16 @@
 </div>
 <div class="row">
   <div class="col-md-3 offet col-md-offset-2">
+  <p>
+  <%= link_to 'Zeige Verbrauchsrechner', '#', :class => "btn btn-info", :id => "consump_link" %>
+  </p>
     <div class="btn-toolbar">
-      <p>Errechne Verbrauch zwischen</p>
-      <%= collection_select('date1', @car.id, @car.refuellings.where(filled_up:true).order('refuel_date'), :id, :refuel_date, {prompt: "Wähle erstes Datum"}, {class: "form-control",id: "date1"}) %>
-      <%= collection_select('date2', 0, @car.refuellings.where(filled_up:true).order('refuel_date'), :id, :refuel_date,{prompt: "Wähle zweites Datum"}, {class: "form-control",id: "date2"}) %>
-      <%= link_to 'Errechne Verbrauch', '#', :class => "btn btn-success", :id => "calc_consump",:remote => true %>
-      
+      <div id = "consump_section">
+        <p>Errechne Verbrauch zwischen</p>
+        <%= collection_select('date1', @car.id, @refuellings_date1, :id, :refuel_date, {prompt: "Wähle erstes Datum"}, {class: "form-control",id: "date1" , data: {carid: @car.id} }) %>
+        <%= collection_select('date2', 0, @refuellings_date2, :id, :refuel_date,{prompt: "Wähle zweites Datum"}, {class: "form-control",id: "date2"}) %>
+        <%= link_to 'Errechne Verbrauch', '#', :class => "btn btn-success", :id => "calc_consump",:remote => true %>
+      </div>
     </div>
   </div>
     <div class="col-md-3" id="consump_result">
@@ -40,27 +44,3 @@
       <p id='consump_result_fig'><b></b></p>
     </div>
 </div>
-
-
-<script type="text/javascript">
-
-  $('#calc_consump').on('click', function() {
-      var date1_id = $('#date1').val()
-      var date2_id = $('#date2').val()
-      var car_id = <%= @car.id %>
-      var data_for_calc_consump = {date1_id: date1_id, date2_id: date2_id, car_id: car_id}
-      $.ajax({
-        dataType: "text",
-        url: "/cars/calc_consump.json",
-        data: data_for_calc_consump,
-        type: 'GET',
-        success: function(json) {
-          result = $.parseJSON(json);
-          var answer= result.toString()  + ' l/100km';
-          $('#consump_result_fig').children('b').text(answer);
-          $('#consump_result').show()
-         },
-      });
-  })
-
-</script>

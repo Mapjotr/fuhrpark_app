@@ -48,9 +48,20 @@ class RefuellingsController < ApplicationController
 
   def index
     @refuellings = current_car.refuellings.order('refuel_date DESC').paginate(page: params[:page],:per_page => 10)
+    @refuellings_date1 = current_car.refuellings.where(filled_up:true).order('refuel_date')
     @car = current_car
     @car_id = current_car.id
     @car_name = current_car.car_name
+    @refuellings_date2 = []
+  end
+
+  def update_date2
+    refuelling_id_date1 = params[:refuelling_id]
+    date1 = Refuelling.find_by(id:refuelling_id_date1).refuel_date
+    refuellings_date2 = current_car.refuellings.where("refuel_date > ? AND filled_up = ?", date1, true).order('refuel_date')
+    respond_to do |format|
+      format.json { render json: refuellings_date2 }  # respond with the created JSON object
+    end
   end
 
 private

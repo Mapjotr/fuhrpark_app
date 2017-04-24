@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :cars do
-    resources :refuellings
+    resources :refuellings do
+      get :update_date2, on: :collection, defaults: { format: 'json' }
+    end
     resources :repairs
     get :calc_consump, on: :collection 
   end
