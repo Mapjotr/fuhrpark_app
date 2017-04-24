@@ -77,10 +77,10 @@ peter.cars.create!(
       car_brand: 'VW',
       car_model: 'Caddy Maxi 1.6 TDI',
       purchase_price: 13500,
-      registrationdate: Time.new(2016,03,01),
+      registrationdate: Time.new(2013,01,01),
       purchase_date: Time.new(2016,06,15),
       milage_purchase_date: 25000, 
-      seller:'Baumann Nürnberg',
+      seller:'Willi Baumann, Neukirchen',
       fuel_type: 'Diesel',
       numberplate: 'TR-CS-340',
       cubic_capacity: 1600,
@@ -100,19 +100,57 @@ caddy = Car.find_by(car_model:'Caddy Maxi 1.6 TDI')
 
 ## REFUELLING SAMPLES
 caddy.refuellings.create!(
-  refuel_date: Time.new(2017,1,17),
-  milage: 59000,
-  cents_per_liter:105,
-  filling_station: 'Shell Skalitzer',
+  refuel_date: Time.new(2017,1,20),
+  milage: 66830,
+  cents_per_liter:115,
+  filling_station: 'Shell Görlitzer',
   location: 'Berlin',
-  liters: 50.0,
+  liters: 58.4,
+  filled_up:true
+  )
+
+caddy.refuellings.create!(
+  refuel_date: Time.new(2017,2,25),
+  milage: 67825,
+  cents_per_liter:114,
+  filling_station: 'Total',
+  location: 'Berlin',
+  liters: 38.74,
+  filled_up:true
+  )
+
+caddy.refuellings.create!(
+  refuel_date: Time.new(2017,3,16),
+  milage: 68444,
+  cents_per_liter:112,
+  filling_station: 'Aral Skalitzer',
+  location: 'Berlin',
+  liters: 43.05,
+  filled_up:true
+  )
+
+caddy.refuellings.create!(
+  refuel_date: Time.new(2017,4,8),
+  milage: 69194,
+  cents_per_liter:113,
+  filling_station: 'Star',
+  location: 'Stralsund',
+  liters: 48.8,
   filled_up:true
   )
 
 ## Repairs SAMPLES
 caddy.repairs.create!(
+  repair_date: Time.new(2016,8,2),
+  title: 'Inspektion',
+  description: 'Ölwechsel, Bremsscheiben hinten, Wechsel empfohlen',
+  billings_amount: 431.66,
+  garage: 'Autohaus Ostkreuz'
+)
+
+caddy.repairs.create!(
   repair_date: Time.new(2017,1,17),
-  title: 'Neue reifen',
+  title: 'Neue Reifen',
   description: 'Alle vier Reifen wurden durch Allwetterreifen getauscht. Neuer Reifentyp: Michelin CrossClimate 205/55R16 94V',
   billings_amount: 460.00,
   garage: 'Reifen Sanders Berlin'
