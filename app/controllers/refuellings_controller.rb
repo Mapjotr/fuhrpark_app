@@ -58,9 +58,10 @@ class RefuellingsController < ApplicationController
   def update_date2
     refuelling_id_date1 = params[:refuelling_id]
     date1 = Refuelling.find_by(id:refuelling_id_date1).refuel_date
-    refuellings_date2 = current_car.refuellings.where("refuel_date > ? AND filled_up = ?", date1, true).order('refuel_date')
+    @refuellings_date2 = current_car.refuellings.where("refuel_date > ? AND filled_up = ?", date1, true).select("id, refuel_date").order('refuel_date')
     respond_to do |format|
-      format.json { render json: refuellings_date2 }  # respond with the created JSON object
+      format.json { render json: @refuellings_date2 }  # respond with the created JSON object
+      format.js # render update_date2.js.erb
     end
   end
 

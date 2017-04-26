@@ -1,0 +1,6 @@
+$('#date2').empty()
+<% @refuellings_date2.each do |p| %>
+   var refuel_date = "<%= p.refuel_date%>"
+   var refuel_id = "<%= p.id%>"
+   $('#date2').append($('<option>').text(refuel_date).attr('value', refuel_id))
+<% end %>

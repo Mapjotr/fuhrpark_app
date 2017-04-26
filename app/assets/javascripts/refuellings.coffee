@@ -11,17 +11,12 @@ ready = ->
   $('#date1').change ->
     car_id = $('#date1').data('carid')
     $.ajax
-      url: "/cars/#{car_id}/refuellings/update_date2",
+      url: "/cars/#{car_id}/refuellings/update_date2.js",
       data: {
         carid : car_id,
         refuelling_id: $('#date1').val() 
       },
-      type: 'GET',
-      success: (json) -> 
-        $('#date2').empty()
-        $.each json, (i, value) ->
-            $('#date2').append($('<option>').text(value.refuel_date).attr('value', value.id))
-
+      type: 'GET'
 
   $('#calc_consump').click (event) ->
     date1_id = $('#date1').val()
