@@ -33,7 +33,7 @@
     <div class="btn-toolbar">
       <div id = "consump_section">
         <p>Errechne Verbrauch zwischen</p>
-        <%= collection_select('date1', @car.id, @refuellings_date1, :id, :refuel_date, {prompt: "Wähle erstes Datum"}, {class: "form-control",id: "date1" , data: {carid: @car.id} }) %>
+        <%= collection_select('date1', @car.id, @refuellings_date1, :id, :refuel_date_format, {prompt: "Wähle erstes Datum"}, {class: "form-control",id: "date1" , data: {carid: @car.id} }) %>
         <%= collection_select('date2', 0, @refuellings_date2, :id, :refuel_date,{prompt: "Wähle zweites Datum"}, {class: "form-control",id: "date2"}) %>
         <%= link_to 'Errechne Verbrauch', '#', :class => "btn btn-success", :id => "calc_consump",:remote => true %>
       </div>

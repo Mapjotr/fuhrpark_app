@@ -1,5 +1,4 @@
 <% provide(:title, 'Meine Autos') %>
-<h1 class="h1_formular">Meine Autos (<%= @user_cars.length %>)</h1>
 <div class="row">
   <aside class="col-md-2">
     <div class="btn-toolbar">
@@ -7,6 +6,7 @@
     </div>
   </aside>
   <div class="col-md-10">
-        <%= render @user_cars %>
+    <h1 class="h1_formular">Meine Autos</h1>
+    <%= render current_user.cars %>
   </div>
 </div>

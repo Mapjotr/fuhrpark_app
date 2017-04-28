@@ -14,4 +14,8 @@ class Refuelling < ApplicationRecord
       self.cents_per_liter ||= 0.00 # note self.status = 'P' if self.status.nil? might be safer (per @frontendbeauty)
     end
 
+    def refuel_date_format
+      I18n.l(refuel_date, format: '%d.%m.%Y')
+    end
+
 end

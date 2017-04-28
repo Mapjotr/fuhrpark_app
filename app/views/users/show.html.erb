@@ -1,12 +1,1 @@
-<% provide(:title, 'Meine Autos') %>
-<h1>Meine Autos (<%= current_user.cars.length %>)</h1>
-<div class="row">
-  <aside class="col-md-2">
-    <div class="btn-toolbar">
-    <%= link_to 'Neues Auto', new_car_path, :class => "btn btn-success btn-block" %> 
-    </div>
-  </aside>
-  <div class="col-md-10">
-        <%= render current_user.cars %>
-  </div>
-</div>
+<%= render 'shared/home_signed_in' %>

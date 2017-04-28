@@ -5,10 +5,14 @@ application up and running.
 
 Things to do:
 
-* modify refuelling model --> add validations, convert figures if wrong etc.
-* get better date-picker
-* get radio buttons inline (gem simple form?)
-* upload pdfs for billings 
+* Design of starting page
+* Fix Update duplicate problem!!
+* Delete header (Meine Auto(15))
+* Add image slider for car pictures
+* get Vollkasko/Teilkasko right
+* Better date style for consumption calculator
+* Add permanent link to acr details (round image)
+* delete single pdf billings 
 * Make more years available in date picker!
 * update .gitignore
 

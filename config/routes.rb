@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy]
   resources :cars do
     resources :refuellings do
-      get :update_date2, on: :collection, defaults: { format: 'json' }
+      get :update_date2, on: :collection
     end
     resources :repairs
     get :calc_consump, on: :collection 
