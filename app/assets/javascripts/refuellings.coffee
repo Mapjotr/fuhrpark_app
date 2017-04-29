@@ -18,7 +18,7 @@ ready = ->
       },
       type: 'GET'
 
-  $('#calc_consump').click (event) ->
+  $('#date2,#date1').change (event) ->
     date1_id = $('#date1').val()
     date2_id = $('#date2').val()
     car_id = $('#date1').data('carid')
@@ -29,7 +29,7 @@ ready = ->
       type: 'GET',
       success: (json) ->
         result = $.parseJSON(json)
-        answer= "#{result} l/100km"
+        answer= "#{result} l pro 100km"
         $('#consump_result_fig').children('b').text(answer);
         $('#consump_result').show()
 

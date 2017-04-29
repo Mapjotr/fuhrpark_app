@@ -28,8 +28,8 @@
   </div>
   <div class="row bottom-buffer">
     <div class="col-md-6 col-md-offset-3">
-      <h2 class="h2_formular">Bilder</h2>
-      <img src="/images/caddy.jpg" style="width:100%" alt="blabla" class="img-rounded">
+      <h2 class="h2_formular">Bild</h2>
+      <%= image_tag(@car.picture.url, :width => "100%", :title => @car.car_name, class: "img-rounded")%>
     </div>
   </div>
         

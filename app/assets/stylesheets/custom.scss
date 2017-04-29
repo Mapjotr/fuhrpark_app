@@ -131,6 +131,12 @@ aside {
     margin-bottom: 20px; 
 }
 
+.image_circle_sidebar {
+  margin-top: 22px;
+  border-radius: 50%;
+  margin-left: 22px;
+  margin-bottom: 10px;
+}
 
 /* forms */
 
@@ -311,6 +317,7 @@ span.picture {
   .img-circle {
       border-radius: 100%;
   }
+
 
 /* tables */
 .table-borderless > tbody > tr > td,

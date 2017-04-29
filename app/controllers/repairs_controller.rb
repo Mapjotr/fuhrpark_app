@@ -40,8 +40,8 @@ class RepairsController < ApplicationController
   end
 
   def edit
-    @repair = current_car.repairs.find(params[:id])
     @car = current_car
+    @repair = current_car.repairs.find(params[:id])
   end
 
   def destroy
@@ -52,7 +52,8 @@ class RepairsController < ApplicationController
   end
 
   def index
-    @repairs = current_car.repairs.paginate(page: params[:page],:per_page => 3)
+    @repairs = current_car.repairs.paginate(page: params[:page],:per_page => 5)
+    @car = current_car
     @car_id = current_car.id
     @car_name = current_car.car_name
   end

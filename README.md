@@ -6,7 +6,6 @@ application up and running.
 Things to do:
 
 * Design of starting page
-* Fix Update duplicate problem!!
 * Add image slider for car pictures
 * get Vollkasko/Teilkasko right
 * Add permanent link to car details (round image)
