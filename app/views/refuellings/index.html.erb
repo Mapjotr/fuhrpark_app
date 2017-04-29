@@ -2,8 +2,8 @@
 
 <div class="row">
   <div class="col-md-2">
-    <%= link_to image_tag(@car.picture.url, :size => "100x100", :title => 'Zurück zum Auto', class: "image_circle_sidebar"), 
-      car_path(@car.id)%>
+    <%= link_to image_tag(@car.picture.url, :width => "120", :title => 'Zurück zum Auto', class: "image_rounded_sidebar"), 
+      car_path(@car.id), class: 'image_centered_sidebar'%>
     <div class="btn-toolbar">
       <%= link_to 'Verbrauchsrechner', '#', :class => "btn btn-warning", :id => "consump_link" %>
     </div>

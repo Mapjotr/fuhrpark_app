@@ -57,6 +57,7 @@ class RefuellingsController < ApplicationController
     @car_id = current_car.id
     @car_name = current_car.car_name
     @refuellings_date2 = []
+    @refuelling = Refuelling.new
   end
 
   def update_date2
