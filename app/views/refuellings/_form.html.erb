@@ -1,4 +1,4 @@
-<%= simple_form_for @refuelling, url: car_refuellings_path, html: { method: :post }  do |f| %>
+<%= simple_form_for [@car,@refuelling] do |f| %>
   <%= f.input :refuel_date %>
   <%= f.input :milage %>
   <%= f.input :cents_per_liter %>

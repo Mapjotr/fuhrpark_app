@@ -13,6 +13,7 @@ class RefuellingsController < ApplicationController
   
   def new
     @refuelling = Refuelling.new
+    @car = current_car
   end
 
   def create
@@ -27,6 +28,8 @@ class RefuellingsController < ApplicationController
 
   def update
     #if current_user.cars.find(params[:id]).update_attributes(car_params) # in case you should be only allowed to update your own cars
+    @car = current_car
+    @refuelling = @car.refuellings.find(params[:id])
     if @refuelling.update_attributes(refuelling_params)
       flash[:success] = "Tankeintrag aktualisiert"
       redirect_to car_refuellings_path
@@ -37,6 +40,7 @@ class RefuellingsController < ApplicationController
 
   def edit
     @refuelling = current_car.refuellings.find(params[:id])
+    @car = current_car
   end
 
   def destroy

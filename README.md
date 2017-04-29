@@ -7,11 +7,9 @@ Things to do:
 
 * Design of starting page
 * Fix Update duplicate problem!!
-* Delete header (Meine Auto(15))
 * Add image slider for car pictures
 * get Vollkasko/Teilkasko right
-* Better date style for consumption calculator
-* Add permanent link to acr details (round image)
+* Add permanent link to car details (round image)
 * delete single pdf billings 
 * Make more years available in date picker!
 * update .gitignore

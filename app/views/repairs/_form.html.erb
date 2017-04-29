@@ -1,4 +1,4 @@
-<%= simple_form_for @repair, url: car_repairs_path, html: { method: :post }  do |f| %>
+<%= simple_form_for [@car,@repair] do |f| %>
   <%= f.input :repair_date %>
   <%= f.input :title %>
   <%= f.input :description, 

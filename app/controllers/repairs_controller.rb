@@ -13,9 +13,11 @@ class RepairsController < ApplicationController
   
   def new
     @repair = Repair.new
+    @car = current_car
   end
 
   def create
+    #http://localhost:3000/cars/22/repairs
     @repair = current_car.repairs.build(repairs_params)
     if @repair.save
       flash[:info] = "Neue Reparatur hinzuzugefügt"
@@ -26,7 +28,9 @@ class RepairsController < ApplicationController
   end
 
   def update
-    #if current_user.cars.find(params[:id]).update_attributes(car_params) # in case you should be only allowed to update your own cars
+    #http://localhost:3000/cars/22/repairs/318
+    @car = current_car
+    @repair = @car.repairs.find(params[:id])
     if @repair.update_attributes(repairs_params)
       flash[:success] = "Reparatur aktualisiert"
       redirect_to car_repairs_path
@@ -37,6 +41,7 @@ class RepairsController < ApplicationController
 
   def edit
     @repair = current_car.repairs.find(params[:id])
+    @car = current_car
   end
 
   def destroy
