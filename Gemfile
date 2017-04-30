@@ -18,6 +18,7 @@ gem 'turbolinks',              '5.0.0'
 gem 'jbuilder',                '2.4.1'
 gem 'pg',   				           '0.18.4'
 gem 'simple_form',             '3.4.0'
+gem 'jquery-ui-rails',         '5.0.5'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
