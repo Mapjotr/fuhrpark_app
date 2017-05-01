@@ -17,6 +17,7 @@ class RefuellingsController < ApplicationController
   end
 
   def create
+    @car = current_car
     @refuelling = current_car.refuellings.build(refuelling_params)
     if @refuelling.save
       flash[:info] = "Neuer Tankeintrag hinzuzugefügt"

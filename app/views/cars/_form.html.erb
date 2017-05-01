@@ -28,9 +28,17 @@
     <h2 class="h2_formular">Angaben zum Kauf</h2>
   </div>
   <%= f.input :seller %>
-  <%= f.input :purchase_date %>
+  <%= f.input :purchase_date,
+              as: :date, 
+              start_year: Date.today.year,    
+              end_year: Date.today.year - 30,
+              order: [:day, :month, :year] %>
   <%= f.input :purchase_price, :value => (number_with_precision(f.object.purchase_price, :precision => 2) || 0) %>
-  <%= f.input :registrationdate %>
+  <%= f.input :registrationdate,
+            as: :date, 
+            start_year: Date.today.year,    
+            end_year: Date.today.year - 30,
+            order: [:day, :month, :year] %>
   <%= f.input :milage_purchase_date %>
   <div>
     <h2 class="h2_formular">Angaben zur Versicherung</h2>

@@ -1,5 +1,9 @@
 <%= simple_form_for [@car,@refuelling] do |f| %>
-  <%= f.text_field :refuel_date, :class => 'textdatepicker', :placeholder => 'Wähle Datum' %>
+  <%= f.input :refuel_date,
+              as: :date, 
+              start_year: Date.today.year,    
+              end_year: Date.today.year - 2,
+              order: [:day, :month, :year] %>
   <%= f.input :milage %>
   <%= f.input :cents_per_liter %>
   <%= f.input :liters %>

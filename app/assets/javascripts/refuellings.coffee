@@ -8,10 +8,6 @@ ready = ->
     event.preventDefault()
     $('#consump_section').fadeToggle()
 
-  $('#refuelling_refuel_date').datepicker
-    dateFormat: 'dd/mm/yy'
-    showAnim: 'slideDown'
-
   $('#date1').change ->
     car_id = $('#date1').data('carid')
     $.ajax
