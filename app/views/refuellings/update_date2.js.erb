@@ -1,7 +1,16 @@
 $('#date2').empty()
-$('#date2').append($('<option>').text('Wähle 2. Datum'))
 <% @refuellings_date2.each do |p| %>
    var refuel_date = "<%= p.refuel_date.strftime('%d.%m.%Y')%>"
    var refuel_id = "<%= p.id%>"
    $('#date2').append($('<option>').text(refuel_date).attr('value', refuel_id))
 <% end %>
+
+//if no second date was defined before, set to most current date as default
+//otherwise, set to defined date
+<% if (@refuelling_id_date2 == nil) then %>
+  $("#date2").val(refuel_id);
+<% else %>
+  $("#date2").val(<%= @refuelling_id_date2%>);
+<% end %>
+
+

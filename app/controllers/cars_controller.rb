@@ -12,25 +12,32 @@ class CarsController < ApplicationController
 
   def calc_consump
     date1_id = params['date1_id']
-    date2_id = params['date2_id']
-    car_id = params['car_id']
-    consumption = {"consump" => date1_id}
-    milage_date_1 = Car.find(car_id).refuellings.find(date1_id).milage
-    milage_date_2 = Car.find(car_id).refuellings.find(date2_id).milage
-    date_date_1 = Car.find(car_id).refuellings.find(date1_id).refuel_date.strftime("%Y-%m-%d")
-    date_date_2 = Car.find(car_id).refuellings.find(date2_id).refuel_date.strftime("%Y-%m-%d")
+    # check if date2_id is defined
+    # if not (e.g. if you select a date for the first time), use the most current date
+    if params[:date2_id].present?
+      date2_id = params['date2_id']
+      car_id = params['car_id']
+      milage_date_1 = Car.find(car_id).refuellings.find(date1_id).milage
+      milage_date_2 = Car.find(car_id).refuellings.find(date2_id).milage
+      date_date_1 = Car.find(car_id).refuellings.find(date1_id).refuel_date.strftime("%Y-%m-%d")
+      date_date_2 = Car.find(car_id).refuellings.find(date2_id).refuel_date.strftime("%Y-%m-%d")
+    else
+      car_id = params['car_id']
+      milage_date_1 = Car.find(car_id).refuellings.find(date1_id).milage
+      milage_date_2 = Car.find(car_id).refuellings.select('milage').where('filled_up=true').limit(1).order('refuel_date desc')[0].milage
+      date_date_1 = Car.find(car_id).refuellings.find(date1_id).refuel_date.strftime("%Y-%m-%d")
+      date_date_2 = Car.find(car_id).refuellings.select('refuel_date').where('filled_up=true').limit(1).order('refuel_date desc')[0].refuel_date.strftime("%Y-%m-%d")
+    end
+
     km_driven = milage_date_2 - milage_date_1
-    #puts "km_driven: #{km_driven}"
     liters_total = Car.
                     find(car_id).
                     refuellings.
                     where('refuel_date > ?', date_date_1).
                     where('refuel_date <= ?', date_date_2). 
                     sum(:liters)
-    #puts "liters_total: #{liters_total}"
     consumption = (liters_total*100/km_driven).round(2)
-    #puts "consumption: #{consumption}"
-    #return milage.to_s
+
     respond_to do |format|
       format.html
       format.json { render json: consumption }  # respond with the created JSON object

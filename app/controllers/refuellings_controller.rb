@@ -61,7 +61,13 @@ class RefuellingsController < ApplicationController
   end
 
   def update_date2
-    refuelling_id_date1 = params[:refuelling_id]
+    refuelling_id_date1 = params[:refuelling_id_date1]
+    if params[:refuelling_id_date2].present?
+      @refuelling_id_date2 = params[:refuelling_id_date2]
+    else
+      @refuelling_id_date2 = nil
+    end
+
     date1 = Refuelling.find_by(id:refuelling_id_date1).refuel_date
     @refuellings_date2 = current_car.refuellings.where("refuel_date > ? AND filled_up = ?", date1, true).select("id, refuel_date").order('refuel_date')
     respond_to do |format|

@@ -14,7 +14,8 @@ ready = ->
       url: "/cars/#{car_id}/refuellings/update_date2.js",
       data: {
         carid : car_id,
-        refuelling_id: $('#date1').val() 
+        refuelling_id_date1: $('#date1').val()
+        refuelling_id_date2: $('#date2').val() 
       },
       type: 'GET'
 
@@ -29,10 +30,12 @@ ready = ->
       type: 'GET',
       success: (json) ->
         result = $.parseJSON(json)
-        answer= "#{result} l pro 100km"
-        $('#consump_result_fig').children('b').text(answer);
-        $('#consump_result').show()
-
-
+        ###
+        if result is not null
+        ###
+        if result
+          answer= "#{result} l pro 100km"
+          $('#consump_result_fig').children('b').text(answer);
+          $('#consump_result').show()
 
 $(document).on('turbolinks:load', ready)
