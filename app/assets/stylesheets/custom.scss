@@ -180,15 +180,6 @@ input {
   }
 }
 
-#login_panel{
-  text-align:left;
-}
-
-#paragraph_new_user{
-  font-size:small;
-
-}
-
 #session_remember_me {
   width: auto;
   margin-left: 0;
@@ -234,9 +225,36 @@ footer {
 }
 
 /* home */
-#startpage_image {
-    border-radius: 10%;
-    margin-bottom: 35px;
+
+#login_panel-inner{
+  width: 300px;
+  margin: auto;
+  background-color: white;
+  text-align:left;
+  padding: 20px;
+  border-radius: 3%;
+}
+
+#login_panel-outer{
+  width: 300px;
+  margin: auto;
+}
+
+#paragraph_new_user{
+  font-size:small;
+
+}
+
+#login_new_account {
+  width: 300px;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+#login_image {
+    border-radius: 50%;
+    width: 52%;
+    margin-bottom: 12px;
 }
 
 /* microposts */

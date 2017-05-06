@@ -1,8 +1,8 @@
 <div class="center jumbotron">
-  <div id ="login_panel">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-      <p>Logge dich ein:</p>
+  <div id ="login_panel-outer">
+    <%= image_tag("citroen.jpg", width: '100%', alt: "Edit Entry", id: 'login_image') %>
+    <p>Logge dich ein</p>
+    <div id ="login_panel-inner">
       <%= simple_form_for(:session, :url =>login_path) do |f| %>
         <%= f.input :email %>
         <%= f.input :password %>
@@ -15,9 +15,9 @@
         <% end %>
         <%= f.submit "Einloggen", class: "btn btn-primary" %>
       <% end %>
-      <p id="paragraph_new_user">Neuer Benutzer? <%= link_to "Hier gehts zur Anmeldung!", signup_path %></p>
-      <%= image_tag("citroen.jpg", width: '100%', alt: "Edit Entry", id: 'startpage_image') %>
-      </div>
+    </div>
+    <div id= login_new_account>  
+      <p id="paragraph_new_user"><b>Neuer Benutzer?</b> <%= link_to "Erstelle Konto", signup_path %></p>
     </div>
   </div>
 </div>
