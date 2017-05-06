@@ -130,7 +130,8 @@ aside {
 }
 
 .btn-toolbar .btn {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    width: 100%; 
 }
 
 .image_rounded_sidebar {
@@ -377,13 +378,13 @@ table th, table td {
   top:64px;
   display:none;
   background-color: #dedede;
-  border-radius: 50%;
+  border-radius: 0%;
   height:50px;
 }
 
 #consump_result_fig{
   font-size: x-large;
-  color: #c9302c;
+  color: #000;
   text-align:center;
   line-height: 50px;
 }
