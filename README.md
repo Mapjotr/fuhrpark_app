@@ -5,12 +5,9 @@ application up and running.
 
 Things to do:
 
-* Design of starting page
 * Add image slider for car pictures
 * get Vollkasko/Teilkasko right
-* Add permanent link to car details (round image)
 * delete single pdf billings 
-* Make more years available in date picker!
 * update .gitignore
 
 Things you may want to cover:

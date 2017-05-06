@@ -109,11 +109,18 @@ en:
         liters: 'getankte Liter'
         filling_station: 'Name der Tankstelle (z.B. Total Lux)'
         location: 'Ort der Tankstelle'
+      session:
+        email: 'Email-Adresse'
+        password: 'Passwort'
     hints:
       car:
         picture: "Laden Sie ein Bild des Autos hoch"
       repair:
         file: "Laden Sie die Rechnung als PDF, jpeg oder png hoch"
+    labels:
+      session:
+        email: 'Email-Adresse' 
+        password: 'Passwort' 
   number:
       currency:
           format:

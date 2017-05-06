@@ -180,6 +180,15 @@ input {
   }
 }
 
+#login_panel{
+  text-align:left;
+}
+
+#paragraph_new_user{
+  font-size:small;
+
+}
+
 #session_remember_me {
   width: auto;
   margin-left: 0;
@@ -222,6 +231,12 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* home */
+#startpage_image {
+    border-radius: 10%;
+    margin-bottom: 35px;
 }
 
 /* microposts */
