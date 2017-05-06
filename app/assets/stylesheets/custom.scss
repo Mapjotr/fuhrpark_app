@@ -14,7 +14,10 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body { padding-top: 60px; }
+body { 
+  padding-top: 60px;
+}
+
 @media screen and (max-width: 768px) {
     body { padding-top: 200px; }
 }
@@ -67,7 +70,6 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
 
 /* header */
 
@@ -242,7 +244,6 @@ footer {
 
 #paragraph_new_user{
   font-size:small;
-
 }
 
 #login_new_account {
@@ -367,10 +368,24 @@ span.picture {
     border: none;
 }
 
+table th, table td {
+  font-size : 85%;
+}
+
 /* refuellings */
 #consump_result{
   top:64px;
   display:none;
+  background-color: #dedede;
+  border-radius: 50%;
+  height:50px;
+}
+
+#consump_result_fig{
+  font-size: x-large;
+  color: #c9302c;
+  text-align:center;
+  line-height: 50px;
 }
 
 /* miscellaneous */

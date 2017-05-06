@@ -12,7 +12,6 @@
         <%= collection_select('date1', @car.id, @refuellings_date1, :id, :refuel_date_format, {prompt: "Wähle 1. Datum"}, {class: "form-control",id: "date1" , data: {carid: @car.id} }) %>
         <%= collection_select('date2', 0, @refuellings_date2, :id, :refuel_date,{prompt: "Wähle 2. Datum"}, {class: "form-control",id: "date2"}) %>
         <div id="consump_result">
-          <p>Ihr Verbauch:<p>
           <p id='consump_result_fig'><b></b></p>
         </div>
     </div>

@@ -23,12 +23,6 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "Kontakt | #{@base_title}"
   end
 
-   test "should get about" do
-    get about_path
-    assert_response :success
-    assert_select "title", "Über | #{@base_title}"
-  end
-
    test "should get impressum" do
     get impressum_path
     assert_response :success

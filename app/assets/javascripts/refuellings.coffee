@@ -34,7 +34,7 @@ ready = ->
         if result is not null
         ###
         if result
-          answer= "#{result} l pro 100km"
+          answer= "#{result} Liter"
           $('#consump_result_fig').children('b').text(answer);
           $('#consump_result').show()
 
