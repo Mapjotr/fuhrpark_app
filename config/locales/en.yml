@@ -52,7 +52,7 @@ en:
       refuelling:
         refuel_date: "Tankdatum"
         milage: "Kilometerstand"
-        cents_per_liter: "Preis pro Liter"
+        cents_per_liter: "Cent pro Liter"
         liters: "Liter"
         filling_station: "Name der Tankstelle"
         location: "Ort"
@@ -105,9 +105,9 @@ en:
         garage: 'Name der Werkstatt'
       refuelling:
         milage: 'aktuelle Kilometerstand'
-        cents_per_liter: 'Cents pro Liter'
+        cents_per_liter: 'Cent pro Liter'
         liters: 'getankte Liter'
-        filling_station: 'Name der Tankstelle (z.B. Total Lux)'
+        filling_station: 'Name der Tankstelle (z.B. Shell Görlitzer)'
         location: 'Ort der Tankstelle'
       session:
         email: 'Email-Adresse'
