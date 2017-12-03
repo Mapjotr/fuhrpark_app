@@ -1,0 +1,44 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><b><%= rental.customer %> im <%= rental.rental_date_out.strftime('%B %Y') %> </b></h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-6">
+      <table class="table table-borderless">
+        <tr id="rental-header">
+          <th>Ausgeliehen von:</th>
+          <td><%= rental.customer %> </td>
+        </tr> 
+        <tr id="rental-header">
+          <th>Gefahrene Kilometer:</th>
+          <td><%= @driven_kilometers  %></td>
+        </tr> 
+        <tr id="rental-header">
+          <th>Gesamtbetrag:</th>
+          <td><%= @rental_amount_total %> - <%= rental.amount_refuelled %>  = <b><%= @rental_amount_final %> € </b></td>
+        </tr>   
+        <tr id="rental-header">
+          <th>Anmerkungen:</th>
+          <td><%= rental.description %></b></td>
+        </tr>   
+      </table>
+    </div>
+    <div class="col-md-6 " text-left>
+      <table class="table table-borderless">
+        <tr id="rental-header">
+          <th>Ausleihdatum:</th>
+          <td><%= rental.rental_date_out.strftime('%d.%m.%Y') %> bis <%= rental.rental_date_return.strftime('%d.%m.%Y') %> </td>
+        </tr> 
+        <tr id="rental-header">
+          <th>Bereits gezahlt:</th>
+          <td><%= rental.amount_refuelled %></td>
+        </tr> 
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">    
+    <%= link_to 'Editieren', edit_car_rental_path(@car_id,rental.id), :class => "btn-sm btn-info" %> 
+    <%= link_to 'Löschen', car_rental_path(@car_id,rental.id), :class => "btn-sm btn-danger", :method => :delete, 
+      data: { confirm: "Verleihvorgang wirklich löschen?" } %> 
+  </div>
+</div>

@@ -63,6 +63,14 @@ en:
         description: 'Beschreibung'
         billings_amount: 'Rechnungsbetrag'
         garage: 'Name der Werkstatt'
+      rental:
+        customer: 'Name'
+        rental_date_out: 'Datum Ausleihe'
+        rental_date_return: 'Datum Rückgabe'
+        milage_out: 'Kilometerstand Ausleihe'
+        milage_return: 'Kilometerstand Rückgabe'
+        amount_refuelled: 'Tankbetrag bezahlt'
+        description: 'Anmerkungen'
     errors:
       messages:
         blank: 'muss ausgefüllt sein.'

@@ -2,6 +2,7 @@ class Car < ApplicationRecord
   belongs_to :user
   has_many :refuellings, dependent: :destroy
   has_many :repairs, dependent: :destroy
+  has_many :rentals, dependent: :destroy
   accepts_nested_attributes_for :refuellings
   default_scope -> { order(car_name: :asc) }
   mount_uploader :picture, PictureUploader

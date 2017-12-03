@@ -1,0 +1,21 @@
+<table class="table table-striped">
+   <tr id="car-header">
+    <th class="col-md-4">Name</th>
+    <th class="col-md-4">Datum</th>
+    <th class="col-md-4">Km</th>
+  </tr> 
+<% @car.rentals[0..4].each do |rental| %>
+  <tr id="car-<%= rental.id %>">
+    <td class="col-md-4"><%= rental.customer %> </td>
+    <td class="col-md-4"><%= rental.rental_date_out.strftime('%d.%m.%Y')  %></td>
+    <td class="col-md-4"><%= rental.milage_out %> </td>
+  </tr>      
+<% end %>
+</table>
+<p>
+  <%= link_to "Zeige alle &raquo;".html_safe, 
+    car_rentals_path(@car.id), :title => "Zeige alle", 
+    :class => "btn btn-default" 
+  %>
+  <%= link_to 'Neuer Ausleihvorgang', new_car_rental_path((@car.id)), :class => "btn btn-success" %> 
+</p>

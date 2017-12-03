@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'password_resets/new'
   get 'password_resets/edit'
   root 'static_pages#home'
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
       get :update_date2, on: :collection
     end
     resources :repairs
-    get :calc_consump, on: :collection 
+    get :calc_consump, on: :collection
+    resources :rentals
   end
 end

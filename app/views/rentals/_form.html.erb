@@ -1,0 +1,21 @@
+<%= simple_form_for [@car,@rental] do |f| %>
+  <%= f.input :customer %>
+  <%= f.input :rental_date_out,
+              as: :date, 
+              start_year: Date.today.year,    
+              end_year: Date.today.year - 5,
+              order: [:day, :month, :year] %>
+  <%= f.input :rental_date_return,
+              as: :date, 
+              start_year: Date.today.year,    
+              end_year: Date.today.year - 5,
+              order: [:day, :month, :year] %>
+  <%= f.input :milage_out %>
+  <%= f.input :milage_return %>
+  <%= f.input :amount_refuelled %>
+  <%= f.input :description, 
+      :as   => :text,
+      :input_html => {:rows => 9 }
+      %>
+  <%= f.button :submit, yield(:button_text), class: "btn btn-success" %>
+<% end %>

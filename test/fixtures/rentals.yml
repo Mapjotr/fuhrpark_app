@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: MyString
+  rental_date_out: 2017-12-03
+  rental_date_return: 2017-12-03
+  milage_out: 1
+  milage_return: 1
+  description: MyText
+  car: one
+
+two:
+  customer: MyString
+  rental_date_out: 2017-12-03
+  rental_date_return: 2017-12-03
+  milage_out: 1
+  milage_return: 1
+  description: MyText
+  car: two

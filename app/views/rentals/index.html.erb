@@ -1,0 +1,16 @@
+<% provide(:title, 'Verleihvorgänge') %>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to image_tag(@car.picture.url, :width => "120", :title => 'Zurück zum Auto', class: "image_rounded_sidebar"), 
+      car_path(@car.id), class: 'image_centered_sidebar'%>
+    <div class="btn-toolbar">
+    <%= link_to 'Neuer Eintrag', new_car_rental_path(@car_id), :class => "btn btn-success btn-block" %> 
+    </div>
+  </div>
+  <div class="col-md-10">
+    <h1 class="h1_formular">Verleihvorgänge <%= @car_name %> </h1>
+    <%= render @rentals %>
+    <%= will_paginate @rentals, :previous_label => 'Vorige', :next_label => 'Weiter' %>
+  </div>
+</div>

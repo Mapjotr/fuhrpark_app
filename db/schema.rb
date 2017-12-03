@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422102117) do
+ActiveRecord::Schema.define(version: 20171203101622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170422102117) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_microposts_on_user_id", using: :btree
   end
@@ -70,6 +71,30 @@ ActiveRecord::Schema.define(version: 20170422102117) do
     t.boolean  "filled_up"
     t.index ["car_id", "created_at"], name: "index_refuellings_on_car_id_and_created_at", using: :btree
     t.index ["car_id"], name: "index_refuellings_on_car_id", using: :btree
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+    t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.string   "customer"
+    t.date     "rental_date_out"
+    t.date     "rental_date_return"
+    t.integer  "milage_out"
+    t.integer  "milage_return"
+    t.float    "amount_refuelled"
+    t.text     "description"
+    t.integer  "car_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["car_id"], name: "index_rentals_on_car_id", using: :btree
   end
 
   create_table "repairs", force: :cascade do |t|
@@ -105,5 +130,6 @@ ActiveRecord::Schema.define(version: 20170422102117) do
   add_foreign_key "cars", "users"
   add_foreign_key "microposts", "users"
   add_foreign_key "refuellings", "cars"
+  add_foreign_key "rentals", "cars"
   add_foreign_key "repairs", "cars"
 end
